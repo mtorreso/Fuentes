@@ -204,6 +204,14 @@
         <servlet-name>Busquedatransporte</servlet-name>
         <servlet-class>Servlets.Busquedatransporte</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Modificaclaveadmin</servlet-name>
+        <servlet-class>Servlets.Modificaclaveadmin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Solicitudtransporte</servlet-name>
+        <servlet-class>Servlets.Solicitudtransporte</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CrearDepartamento</servlet-name>
         <url-pattern>/CrearDepartamento</url-pattern>
@@ -407,6 +415,14 @@
     <servlet-mapping>
         <servlet-name>Busquedatransporte</servlet-name>
         <url-pattern>/Busquedatransporte</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Modificaclaveadmin</servlet-name>
+        <url-pattern>/Modificaclaveadmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Solicitudtransporte</servlet-name>
+        <url-pattern>/Solicitudtransporte</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

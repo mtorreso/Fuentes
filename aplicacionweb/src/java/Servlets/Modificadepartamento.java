@@ -2,6 +2,7 @@ package Servlets;
 
 import Modelo.CuentasService;
 import Modelo.DepartamentoService;
+import Modelo.SendMail;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -42,8 +43,28 @@ public class Modificadepartamento extends HttpServlet {
                                 request.getParameter("descripcion"),
                                 request.getParameter("fecha"),
                                 request.getParameter("direccion")
-                                ));
+                        ));
 
+                String m = request.getParameter("correo");
+                String sub = "Turismo Real >> Actualización Departamento";
+
+                String messg = "Estimado Usuario \n"
+                        + "\n"
+                        + "Se informa que se ha realizado una actualización a un departamento  con los siguientes datos\n"
+                        + "-------------------------------------------------------------------------------------------------------------------\n"
+                        + "Fecha Publicación: " + request.getParameter("fecha") + "\n"
+                        + "Nombre :           " + request.getParameter("nombre") + "\n"
+                        + "Dirección :        " + request.getParameter("direccion") + "/" + request.getParameter("ubicacion") + "\n"
+                        + "Baños :            " + request.getParameter("banos") + "\n"
+                        + "Dormitorios:       " + request.getParameter("habitaciones") + "\n"
+                        + "Valor Arriendo :   " + request.getParameter("valorarriendo") + "\n"
+                        + "Detalle :          " + request.getParameter("descripcion") + "\n"
+                        + "\n"
+                        + "\n"
+                        + "-------------------------------------------------------------------------------------------------------------------\n"
+                        + "\n"
+                        + "Muchas Gracias por Preferir Turismo Real !";
+                SendMail.send(m, sub, messg);
                 if (request.getAttribute("msg").toString().contains("correctamente")) {
                     request.getRequestDispatcher("departamentos.jsp").forward(request, response);
                 } else {

@@ -669,7 +669,7 @@
                                     out.print("</span>");
                                 } else if (t.getEstado().equals("1")) {
                                     out.print("<span class=''>");
-                                    out.println("<a href='planificartransporte?accion=ver&id=" + t.getIdSolicitud()+ "' class='btn btn-primary active' role='button' onclick='return confirm(\"Seguro que desea cambiar el estado este aviso?\")'>Ver Asignación</a>");
+                                    out.println("<a href='Solicitudtransporte?accion=detalleadmin&id_solicitud=" + t.getIdSolicitud()+ "' class='btn btn-primary active' role='button' onclick='return confirm(\"Seguro que desea cambiar el estado este aviso?\")'>Ver Asignación</a>");
                                     out.print("</span>");
                                 }
 

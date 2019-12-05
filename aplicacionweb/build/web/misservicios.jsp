@@ -376,7 +376,7 @@
                         <tbody id="myTable">
                             <%
                                 //   String rut = (String)request.getParameter("rut");
-                                int codigo = Integer.parseInt((String) request.getAttribute("id_reserva"));
+                                String codigo = ((String) request.getAttribute("id_reserva"));
                                 System.out.print("id departamento " + id);
                                 ServicioService srv = new ServicioService();
                                 List<Servicioreserva> serv = srv.servicioscontratados(codigo);

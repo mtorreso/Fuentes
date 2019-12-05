@@ -32,20 +32,32 @@ public class nuevasolicitud extends HttpServlet {
                                 request.getParameter("fecha_solicitud"),
                                 request.getParameter("hora_solicitud"),
                                 request.getParameter("origen"),
-                                request.getParameter("destino") ));
+                                request.getParameter("destino")));
 
                 String m = request.getParameter("correo");
                 String sub = "Solicitud de Transporte Enviada Correctamente";
-                String messg = "Estimado Cliente se informa que su solicitud  ha sido recepcioada correctamente. "
-                        + "En las proximas 24 horas el administrador le asignara un transporte. "
-                        
-                        + "Muchas gracias por preferir Turismo Real!";
+                String messg = "Estimado Cliente , \n"
+                        + "\n"
+                        + "Se informa que su solicitud fue ingresada correctamente con los siguientes datos\n"
+                        + "\n"
+                        + "Fecha : "+request.getParameter("fecha_solicitud")+" \n"
+                        + "\n"
+                        + "Hora :  "+request.getParameter("hora_solicitud")+"\n"
+                        + "\n"
+                        + "Origen:"+request.getParameter("origen")+"\n"
+                        + "\n"
+                        + "Destino : "+request.getParameter("destino")+"\n"
+                        + "\n"
+                        + "En las proximas 48 horas el administrador le asignara un transporte.\n"
+                        + "-------------------------------------------------------------------------------------------------------------------\n"
+                        + "\n"
+                        + "Muchas Gracias por Preferir Turismo Real !";
 
                 SendMail.send(m, sub, messg);
 
                 if (request.getAttribute("msg").toString().contains("correctamente")) {
-                     request.getRequestDispatcher("indexcliente.jsp").forward(request, response);
-                     
+                    request.getRequestDispatcher("indexcliente.jsp").forward(request, response);
+
                 } else {
                     //Redireccionamos a la misma página para que lo vuelva a intentar si algún error ocurre
                     request.setAttribute("error", request.getAttribute("msg"));

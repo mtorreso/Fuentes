@@ -12,6 +12,10 @@
 
 <xs:element name="CrearCuentaResponse" type="tns:CrearCuentaResponse"/>
 
+<xs:element name="Detalleasignacion" type="tns:Detalleasignacion"/>
+
+<xs:element name="DetalleasignacionResponse" type="tns:DetalleasignacionResponse"/>
+
 <xs:element name="Eliminardepartamento" type="tns:Eliminardepartamento"/>
 
 <xs:element name="EliminardepartamentoResponse" type="tns:EliminardepartamentoResponse"/>
@@ -47,6 +51,10 @@
 <xs:element name="actualizarestadosolicitud" type="tns:actualizarestadosolicitud"/>
 
 <xs:element name="actualizarestadosolicitudResponse" type="tns:actualizarestadosolicitudResponse"/>
+
+<xs:element name="actualizarperfil" type="tns:actualizarperfil"/>
+
+<xs:element name="actualizarperfilResponse" type="tns:actualizarperfilResponse"/>
 
 <xs:element name="agregarReserva" type="tns:agregarReserva"/>
 
@@ -208,6 +216,34 @@
 
 <xs:element name="validaUsuarioResponse" type="tns:validaUsuarioResponse"/>
 
+<xs:complexType name="agregarReserva">
+<xs:sequence>
+<xs:element name="fecha_reserva" type="xs:string" minOccurs="0"/>
+<xs:element name="cantidad_personas" type="xs:string" minOccurs="0"/>
+<xs:element name="fecha_salida" type="xs:string" minOccurs="0"/>
+<xs:element name="rut" type="xs:string" minOccurs="0"/>
+<xs:element name="id_departamento" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="agregarReservaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarUsuario">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarUsuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="listardepartamentos">
 <xs:sequence/>
 </xs:complexType>
@@ -230,34 +266,6 @@
 <xs:element name="nombre" type="xs:string" minOccurs="0"/>
 <xs:element name="ubicacion" type="xs:string" minOccurs="0"/>
 <xs:element name="valorarriendo" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="eliminarUsuario">
-<xs:sequence>
-<xs:element name="id" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="eliminarUsuarioResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="agregarReserva">
-<xs:sequence>
-<xs:element name="fecha_reserva" type="xs:string" minOccurs="0"/>
-<xs:element name="cantidad_personas" type="xs:string" minOccurs="0"/>
-<xs:element name="fecha_salida" type="xs:string" minOccurs="0"/>
-<xs:element name="rut" type="xs:string" minOccurs="0"/>
-<xs:element name="id_departamento" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="agregarReservaResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -376,9 +384,23 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="actualizarperfil">
+<xs:sequence>
+<xs:element name="rut" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="clave" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarperfilResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="servicioscontratados">
 <xs:sequence>
-<xs:element name="id_reserva" type="xs:int"/>
+<xs:element name="id_reserva" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -391,7 +413,7 @@
 <xs:complexType name="servicioreserva">
 <xs:sequence>
 <xs:element name="fecha_contratacion" type="xs:string" minOccurs="0"/>
-<xs:element name="id_reserva" type="xs:int"/>
+<xs:element name="id_reserva" type="xs:string" minOccurs="0"/>
 <xs:element name="id_srv" type="xs:int"/>
 <xs:element name="nombre_srv" type="xs:string" minOccurs="0"/>
 <xs:element name="precio" type="xs:string" minOccurs="0"/>
@@ -421,6 +443,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="retornarRut">
+<xs:sequence>
+<xs:element name="correo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="retornarRutResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="modificarInventario">
 <xs:sequence>
 <xs:element name="id_inv" type="xs:int"/>
@@ -438,18 +472,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="retornarRut">
-<xs:sequence>
-<xs:element name="correo" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="retornarRutResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="eliminarinventario">
 <xs:sequence>
 <xs:element name="id" type="xs:int"/>
@@ -459,6 +481,41 @@
 <xs:complexType name="eliminarinventarioResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Detalleasignacion">
+<xs:sequence>
+<xs:element name="id_solicitud" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="DetalleasignacionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:asignacionestransporte" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asignacionestransporte">
+<xs:sequence>
+<xs:element name="auto" type="xs:string" minOccurs="0"/>
+<xs:element name="cantidad_personas" type="xs:string" minOccurs="0"/>
+<xs:element name="conductor" type="xs:string" minOccurs="0"/>
+<xs:element name="correo" type="xs:string" minOccurs="0"/>
+<xs:element name="destino" type="xs:string" minOccurs="0"/>
+<xs:element name="estado" type="xs:string" minOccurs="0"/>
+<xs:element name="fecha_reserva" type="xs:string" minOccurs="0"/>
+<xs:element name="fecha_salida" type="xs:string" minOccurs="0"/>
+<xs:element name="fecha_solicitud" type="xs:string" minOccurs="0"/>
+<xs:element name="hora_solicitud" type="xs:string" minOccurs="0"/>
+<xs:element name="id_departamento" type="xs:string" minOccurs="0"/>
+<xs:element name="id_reserva" type="xs:string" minOccurs="0"/>
+<xs:element name="id_solicitud" type="xs:int"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="origen" type="xs:string" minOccurs="0"/>
+<xs:element name="patente" type="xs:string" minOccurs="0"/>
+<xs:element name="rut" type="xs:string" minOccurs="0"/>
+<xs:element name="telefono" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -579,25 +636,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="listarserv">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="listarservResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:serviciosdepto" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="serviciosdepto">
-<xs:sequence>
-<xs:element name="id_departamento" type="xs:int"/>
-<xs:element name="id_srv" type="xs:int"/>
-<xs:element name="nombre_srv" type="xs:string" minOccurs="0"/>
-<xs:element name="precio" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="listarsolicitudesporfechas">
 <xs:sequence>
 <xs:element name="fechainicial" type="xs:string" minOccurs="0"/>
@@ -636,6 +674,25 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="listarserv">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarservResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:serviciosdepto" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="serviciosdepto">
+<xs:sequence>
+<xs:element name="id_departamento" type="xs:int"/>
+<xs:element name="id_srv" type="xs:int"/>
+<xs:element name="nombre_srv" type="xs:string" minOccurs="0"/>
+<xs:element name="precio" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="Eliminardepartamento">
 <xs:sequence>
 <xs:element name="id" type="xs:int"/>
@@ -660,6 +717,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="retornarNombre">
+<xs:sequence>
+<xs:element name="correo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="retornarNombreResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="modificarServicio">
 <xs:sequence>
 <xs:element name="id_srv" type="xs:int"/>
@@ -669,18 +738,6 @@
 </xs:complexType>
 
 <xs:complexType name="modificarServicioResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="retornarNombre">
-<xs:sequence>
-<xs:element name="correo" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="retornarNombreResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
@@ -700,20 +757,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="contratarservicio">
-<xs:sequence>
-<xs:element name="fecha_contratacion" type="xs:string" minOccurs="0"/>
-<xs:element name="id_srv" type="xs:string" minOccurs="0"/>
-<xs:element name="id_reserva" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="contratarservicioResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="modificarUsuario">
 <xs:sequence>
 <xs:element name="id_usuario" type="xs:int"/>
@@ -725,6 +768,20 @@
 </xs:complexType>
 
 <xs:complexType name="modificarUsuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="contratarservicio">
+<xs:sequence>
+<xs:element name="fecha_contratacion" type="xs:string" minOccurs="0"/>
+<xs:element name="id_srv" type="xs:string" minOccurs="0"/>
+<xs:element name="id_reserva" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="contratarservicioResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
@@ -761,18 +818,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="listarpordepartamento">
-<xs:sequence>
-<xs:element name="id" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="listarpordepartamentoResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:departamento" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="eliminarservicio">
 <xs:sequence>
 <xs:element name="id" type="xs:int"/>
@@ -785,6 +830,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="listarpordepartamento">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarpordepartamentoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:departamento" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="Listar3omaspersonas">
 <xs:sequence/>
 </xs:complexType>
@@ -792,27 +849,6 @@
 <xs:complexType name="Listar3omaspersonasResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:reservas" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="ListarCheckin">
-<xs:sequence>
-<xs:element name="id_reserva" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="ListarCheckinResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:checkin" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="checkin">
-<xs:sequence>
-<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
-<xs:element name="fecha_checkin" type="xs:string" minOccurs="0"/>
-<xs:element name="id_checkin" type="xs:int"/>
-<xs:element name="id_reserva" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -838,6 +874,27 @@
 <xs:complexType name="nuevaplanificacionResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ListarCheckin">
+<xs:sequence>
+<xs:element name="id_reserva" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ListarCheckinResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:checkin" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkin">
+<xs:sequence>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="fecha_checkin" type="xs:string" minOccurs="0"/>
+<xs:element name="id_checkin" type="xs:int"/>
+<xs:element name="id_reserva" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 

@@ -76,28 +76,14 @@
             </div>
             <!-- Collection of nav links, forms, and other content for toggling -->
             <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">		
-                <form class="navbar-form form-inline">
-                    <div class="input-group search-box">								
-
-                        <select data-placeholder="Seleccionar Comuna..." class="form-control chosen-select" multiple tabindex="4" wrap-price>
-                            <option>Seleccionar Comuna</option>
-                            <%
-                                LocalidadService loc = new LocalidadService();
-                                List<Localidad> datos = loc.listarLocalidades();
-                                for (Localidad d : datos) {
-                            %>
-                            <option value="<%= d.getNombreLocalidad()%>"><%= d.getNombreLocalidad()%></option>  
-                            <%}%>
-                        </select>
-                    </div>
-                </form>
                 <ul class="nav navbar-nav navbar-right ml-auto">
-                    <li class="nav-item "><a href="indexadmin.jsp" class="nav-link"><i class="fa fa-home"></i><span>Home</span></a></li>
+                    <li class="nav-item active"><a href="indexadmin.jsp" class="nav-link"><i class="fa fa-home"></i><span>Home</span></a></li>
                     <li class="nav-item"><a href="Usuarios.jsp" class="nav-link"><i class="fa fa-user-o"></i><span>Usuarios</span></a></li>
                     <li class="nav-item"><a href="Clientes.jsp" class="nav-link"><i class="fa fa-users"></i><span>Clientes</span></a></li>
-                    <li class="nav-item "><a href="departamentos.jsp" class="nav-link"><i class="fa fa-building"></i><span>Departamentos</span></a></li>
+                    <li class="nav-item"><a href="departamentos.jsp" class="nav-link"><i class="fa fa-building"></i><span>Departamentos</span></a></li>
+                    <li class="nav-item"><a href="solicitudestransporte.jsp" class="nav-link"><i class="fa fa-bus"></i><span>Planificar Transporte</span></a></li>
                     <li class="nav-item"><a href="reportes.jsp" class="nav-link"><i class="fa fa-pie-chart"></i><span>Reportes</span></a></li>
-                    <li class="nav-item dropdown active">
+                    <li class="nav-item dropdown">
                         <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="images/avatar_default.jpg" class="avatar" alt="Avatar">  <%
                             //preguntamo por la variable de sesion creada en el servlet
                             if (sesion.getAttribute("nombre") != null) {
@@ -105,7 +91,7 @@
                             }
                             %><b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="MisDatosAdmin.jsp" class="dropdown-item active"><i class="fa fa-user-o"></i>Mi Cuenta</a></li>
+                            <li><a href="MisDatosAdmin.jsp" class="dropdown-item"><i class="fa fa-user-o"></i>Mi Cuenta</a></li>
                             <li class="divider dropdown-divider"></li>
                             <li><a href="Logout" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Cerrar Sesión</a></li>
                         </ul>
@@ -183,7 +169,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="inputContact5">Rut</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" id="inputContact5" type="text" value="<%
+                                                <input class="form-control" id="inputContact5" type="text" name="rut" value="<%
                                                     //preguntamo por la variable de sesion creada en el servlet
                                                     if (sesion.getAttribute("rut") != null) {
                                                         out.print(sesion.getAttribute("rut"));
@@ -194,29 +180,29 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="inputContact6">Nombre</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" id="inputContact7" type="text" value="<%
+                                                <input class="form-control" id="inputContact7" type="text" name=nombre" value="<%
                                                     //preguntamo por la variable de sesion creada en el servlet
                                                     if (sesion.getAttribute("nombre") != null) {
                                                         out.print(sesion.getAttribute("nombre"));
                                                     }
-                                                    %>" >
+                                                    %>" readonly="" >
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="inputContact7">Email</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" id="inputContact7" type="text" value="<%
+                                                <input class="form-control" id="inputContact7" type="text" name="correo" value="<%
                                                     //preguntamo por la variable de sesion creada en el servlet
                                                     if (sesion.getAttribute("email") != null) {
                                                         out.print(sesion.getAttribute("email"));
                                                     }
-                                                       %>">
+                                                       %>" readonly="">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="inputContact8">Rol</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" id="inputContact8" type="text" placeholder="No Company" value="<%
+                                                <input class="form-control" id="inputContact8" type="text" name="rol"  value="<%
                                                     //preguntamo por la variable de sesion creada en el servlet
                                                     if (sesion.getAttribute("tipo") != null) {
                                                         out.print(sesion.getAttribute("tipo"));
@@ -224,23 +210,19 @@
                                                        %>"readonly="">
                                             </div>
                                         </div>
+                                        
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label" for="inputContact8">Contraseña</label>
-                                            <div class="col-sm-10">
-                                                <input class="form-control" id="inputContact8" type="password" placeholder="" value="">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            
+
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
-                                                <button class="btn btn-primary active" type="submit">Actualizar Perfil</button>
+
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
+                        </form>
                         </div>
                     </div>
                 </div>
@@ -248,7 +230,7 @@
         </div>
 
         <!--fin!-->
-        
+
 
         <div class="products">	 
             <div class="clearfix"> </div>

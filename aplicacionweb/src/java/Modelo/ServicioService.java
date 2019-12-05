@@ -53,16 +53,17 @@ public class ServicioService {
         return port.contratarservicio(fechaContratacion, idSrv, idReserva);
     }
 
-    public java.util.List<webservice.Servicioreserva> servicioscontratados(int idReserva) {
-        webservice.Servicios_Service service = new webservice.Servicios_Service();
-        webservice.Servicios port = service.getServiciosPort();
-        return port.servicioscontratados(idReserva);
-    }
 
     public java.util.List<webservice.Serviciosdepto> listarserv() {
         webservice.Servicios_Service service = new webservice.Servicios_Service();
         webservice.Servicios port = service.getServiciosPort();
         return port.listarserv();
+    }
+
+    public java.util.List<webservice.Servicioreserva> servicioscontratados(java.lang.String idReserva) {
+        webservice.Servicios_Service service = new webservice.Servicios_Service();
+        webservice.Servicios port = service.getServiciosPort();
+        return port.servicioscontratados(idReserva);
     }
 
 

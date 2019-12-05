@@ -512,7 +512,7 @@
                                         if (sesion.getAttribute("email") != null) {
                                             out.print(sesion.getAttribute("email"));
                                         }
-                                       %>&fecha_contratacion=<%= df.format(new java.util.Date())%>"><i class="fa fa-cart-plus"></i></a>
+                                       %>&fecha_contratacion=<%= df.format(new java.util.Date())%>&nombre=<%= d.getNombreSrv()%>&precio=<%= d.getPrecio()%>"><i class="fa fa-cart-plus"></i></a>
                                 </td>
                             </tr>
                             <%}%>

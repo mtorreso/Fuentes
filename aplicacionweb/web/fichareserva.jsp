@@ -605,7 +605,7 @@
                                     <tbody id="myTable">
                                         <%
                                             //   String rut = (String)request.getParameter("rut");
-                                            int codigor = Integer.parseInt((String) request.getAttribute("id_reserva"));
+                                            String codigor = ((String) request.getAttribute("id_reserva"));
                                             System.out.print("id_reserva " + id_reserva);
                                             ServicioService srv = new ServicioService();
                                             List<Servicioreserva> datore = srv.servicioscontratados(codigor);
@@ -658,17 +658,17 @@
                                             <td><%=s.getOrigen()%></td>
                                             <td><%= s.getDestino()%></td>
                                             <td><%
-                                                if (s.getEstado().equals("0")) {
-                                                    out.print("<span class='btn btn-danger btn-xs'>");
-                                                    out.println("Sin Asignación");
-                                                    out.print("</span>");
-                                                } else if (s.getEstado().equals("1")) {
-                                                    out.print("<span class='btn btn-danger'>");
-                                                    out.println("<a href='SrvMissolicitudes?accion=detalle&id_solicitud=" + s.getIdSolicitud() + "' class='btn btn-danger btn-xs' role='button' '>Anular<span class='glyphicon glyphicon-trash'></span></a>");
-                                                    out.print("</span>");
-                                                }
+                                if (s.getEstado().equals("0")) {
+                                    out.print("<span class='btn btn-danger btn-xs'>");
+                                    out.println("Sin Asignación");
+                                    out.print("</span>");
+                                } else if (s.getEstado().equals("1")) {
+                                    out.print("<span class=''>");
+                                    out.println("<a href='SrvMissolicitudes?accion=detalle&id_solicitud=" + s.getIdSolicitud()+ "' class='btn btn-primary active btn-xs' role='button' '>Ver Asignación<span class=''></span></a>");
+                                    out.print("</span>");
+                                }
 
-                                                %></td>
+                                %></td>
 
                                         </tr>
                                         <%}%>

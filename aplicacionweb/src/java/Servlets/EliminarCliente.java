@@ -7,6 +7,7 @@ package Servlets;
 
 import Modelo.CuentasService;
 import Modelo.DepartamentoService;
+import Modelo.SendMail;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
@@ -38,6 +39,19 @@ public class EliminarCliente extends HttpServlet {
                     request.setAttribute("msg",
                             cuenta.eliminarUsuario(Integer.parseInt(request.getParameter("id")))
                     );
+
+                    String m = request.getParameter("correo");
+                    String sub = "Cuenta ha sido desvinculada de Turismo Real";
+
+                    String messg = "Estimado , \n"
+                            + "\n"
+                            + "Se informa que su cuenta ha sido desvinculada del portal Turismo Real \n"
+                            + "-------------------------------------------------------------------------------------------------------------------\n"
+                            + "\n"
+                            + "Muchas Gracias por Preferir Turismo Real !\n"
+                            + "";
+
+                    SendMail.send(m, sub, messg);
 
                     if (request.getAttribute("msg").toString().contains("correctamente")) {
                         request.getRequestDispatcher("Clientes.jsp").forward(request, response);

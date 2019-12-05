@@ -81,6 +81,12 @@ public class CuentasService {
         return port.crearCuenta(rut, nombre, correo, telefono, clave, idRol);
     }
 
+    public String actualizarperfil(java.lang.String rut, java.lang.String nombre, java.lang.String clave) {
+        webservice.Servicios_Service service = new webservice.Servicios_Service();
+        webservice.Servicios port = service.getServiciosPort();
+        return port.actualizarperfil(rut, nombre, clave);
+    }
+
  
 
 }

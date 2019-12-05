@@ -60,30 +60,25 @@ public class CrearDepartamento extends HttpServlet {
                 );
 
                 String m = request.getParameter("correo");
-                String sub = "Se ha generado un nuevo registro  :" + request.getParameter("nombre");
-                String messg = "Fecha Publicación " + request.getParameter("fecha") + "" + ""
-                        + "                                                                                           "
-                        + "                                                                                           "
-                        + "Nombre  : " + request.getParameter("nombre") + ""
-                        + "                                                                                           "
-                        + "                                                                                           "
-                        + "                                                                 "
-                        + "Dirección   : " + request.getParameter("direccion") + "/" + request.getParameter("ubicacion") + "" + ""
-                        + "                                                                                          "
-                        + "                                                                                          "
-                        + "                                                                                          "
-                        + "Baños   : " + request.getParameter("banos") + "/ Dormitorios " + request.getParameter("habitaciones") + "" + ""
-                        + "                                                                                          "
-                        + "                                                                                          "
-                        + "                                                                                          "
-                        + "Valor Arriendo   : " + request.getParameter("valorarriendo") +  "" + ""
-                        + "                                                                                          "
-                        + "                                                                                          "
-                        + "                                                                                          "
-                        + "Descripción Aviso   : " + request.getParameter("descripcion") +  "" + ""
-                        + "                                                                                          "
-                        + "Muchas gracias por preferir Turismo Real !";
+                String sub = "Turismo Real - Nuevo Departamento";
 
+
+                String messg = "Estimado Usuario \n"
+                        + "\n"
+                        + "Se informa que se ha registrado un nuevo departamento  con los siguientes datos\n"
+                        + "-------------------------------------------------------------------------------------------------------------------\n"
+                        + "Fecha Publicación: " + request.getParameter("fecha") + "\n"
+                        + "Nombre :           " + request.getParameter("nombre") + "\n"
+                        + "Dirección :        " + request.getParameter("direccion") + "/" + request.getParameter("ubicacion") + "\n"
+                        + "Baños :            " + request.getParameter("banos") +"\n"
+                        + "Dormitorios:       " + request.getParameter("habitaciones") +"\n"
+                        + "Valor Arriendo :   " + request.getParameter("valorarriendo") +"\n"
+                        + "Detalle :          " + request.getParameter("descripcion") +"\n"
+                        + "\n"
+                        + "\n"
+                        + "-------------------------------------------------------------------------------------------------------------------\n"
+                        + "\n"
+                        + "Muchas Gracias por Preferir Turismo Real !";
                 SendMail.send(m, sub, messg);
 
                 if (request.getAttribute("msg").toString().contains("correctamente")) {

@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="id_reserva" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="id_reserva" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -33,21 +33,29 @@ import javax.xml.bind.annotation.XmlType;
 public class Servicioscontratados {
 
     @XmlElement(name = "id_reserva")
-    protected int idReserva;
+    protected String idReserva;
 
     /**
      * Obtiene el valor de la propiedad idReserva.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getIdReserva() {
+    public String getIdReserva() {
         return idReserva;
     }
 
     /**
      * Define el valor de la propiedad idReserva.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setIdReserva(int value) {
+    public void setIdReserva(String value) {
         this.idReserva = value;
     }
 

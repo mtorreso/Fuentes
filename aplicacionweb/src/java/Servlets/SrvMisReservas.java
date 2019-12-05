@@ -8,7 +8,9 @@ package Servlets;
 import Modelo.DepartamentoService;
 import Modelo.InventarioService;
 import Modelo.ReservasService;
+import Modelo.SendMail;
 import Modelo.ServicioService;
+import Modelo.TransporteService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
@@ -23,7 +25,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author Manuel
  */
 public class SrvMisReservas extends HttpServlet {
-    String servdeptos="servdeptos.jsp";
+    
+    String detalle="detalleasignacioncli.jsp";
+    String servdeptos = "servdeptos.jsp";
     String ficha = "fichareserva.jsp";
     String servicio = "misservicios.jsp";
     String reservas = "misreservas.jsp";
@@ -34,7 +38,7 @@ public class SrvMisReservas extends HttpServlet {
     ServicioService srv = new ServicioService();
     InventarioService inv = new InventarioService();
     DepartamentoService dep = new DepartamentoService();
-
+    TransporteService ts=new TransporteService();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -52,13 +56,15 @@ public class SrvMisReservas extends HttpServlet {
             acceso = servdeptos;
             srv.listarServicios(Integer.parseInt(request.getParameter("id")));
             request.setAttribute("id", request.getParameter("id"));
-            request.setAttribute("id_reserva", request.getParameter("id_reserva"));   
+            request.setAttribute("id_reserva", request.getParameter("id_reserva"));
         } else if (accion.equals("ficha")) {
             acceso = ficha;
             inv.listarInventario(Integer.parseInt(request.getParameter("id")));
             request.setAttribute("id", request.getParameter("id"));
             request.setAttribute("id_reserva", request.getParameter("id_reserva"));
-
+        } else if (accion.equals("detalle")) {
+            acceso = detalle;
+            ts.detalleasignacion(Integer.parseInt(request.getParameter("id_solicitud")));
         } else if (accion.equals("eliminar")) {
 
             try {
@@ -70,9 +76,22 @@ public class SrvMisReservas extends HttpServlet {
                     request.setAttribute("msg",
                             reser.eliminarReserva(Integer.parseInt(request.getParameter("id_reserva")))
                     );
-                    
+
                     dep.actualizarestadodepartamento(Integer.parseInt(request.getParameter("id_departamento")),
-                                request.getParameter("habilitado"));
+                            request.getParameter("habilitado"));
+
+                    String m = request.getParameter("correo");
+                    String sub = "Turismo Real >> Reserva Anulada Correctamente";
+
+                    String messg = "Estimado Cliente , \n"
+                            + "\n"
+                            + "Se informa que la reserva " + request.getParameter("id_reserva") + " ha sido anulada correctamente  \n"
+                            + "-------------------------------------------------------------------------------------------------------------------\n"
+                            + "\n"
+                            + "Muchas Gracias por Preferir Turismo Real !\n"
+                            + "";
+
+                    SendMail.send(m, sub, messg);
 
                     if (request.getAttribute("msg").toString().contains("correctamente")) {
                         request.getRequestDispatcher("misreservas.jsp").forward(request, response);

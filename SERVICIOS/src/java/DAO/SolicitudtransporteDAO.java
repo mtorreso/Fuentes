@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import Modelo.Asignacionestransporte;
 import Modelo.Conexion;
 import Modelo.Solicitudes;
 import Modelo.Solicitudtransporte;
@@ -112,13 +113,13 @@ public class SolicitudtransporteDAO {
         }
         return datos;
     }
-    
-        public List listarsolicitudesporfechas(String fechainicial, String fechafinal) {
+
+    public List listarsolicitudesporfechas(String fechainicial, String fechafinal) {
         System.out.println("fechainiicial" + fechainicial);
         System.out.println("fechafinal" + fechafinal);
         List<Solicitudes> datos = new ArrayList<>();
-        String sql = "select * from solicitudtransporte a inner join reserva b on a.id_reserva=b.id_reserva \n" +
-"                inner join usuario c  on b.rut=c.rut where a.fecha_solicitud between '" + fechainicial + "' and '" + fechafinal + "'";
+        String sql = "select * from solicitudtransporte a inner join reserva b on a.id_reserva=b.id_reserva \n"
+                + "                inner join usuario c  on b.rut=c.rut where a.fecha_solicitud between '" + fechainicial + "' and '" + fechafinal + "'";
         try {
             con = conex.getConnection();
             ps = con.prepareStatement(sql);
@@ -152,7 +153,6 @@ public class SolicitudtransporteDAO {
         return datos;
 
     }
-
 
     public String nuevaplanificacion(String id_solicitud, String conductor, String auto, String patente) {
         String sql = "insert into planificartransporte(id_solicitud,conductor,auto,patente) values(?,?,?,?)";
@@ -193,6 +193,41 @@ public class SolicitudtransporteDAO {
         } catch (Exception e) {
         }
         return msj;
+    }
+
+    public Asignacionestransporte Detalleasignacion(int id_solicitud) {
+        String sql = "select * from solicitudtransporte a inner join planificartransporte b  on a.id_solicitud=b.id_solicitud\n"
+                + "inner join reserva c on a.id_reserva=c.id_reserva inner join usuario d on d.rut=c.rut\n"
+                + "where a.id_solicitud= " + id_solicitud;
+        Asignacionestransporte a = new Asignacionestransporte();
+        try {
+            con = conex.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                a.setId_solicitud(rs.getInt("id_solicitud"));
+                a.setId_reserva(rs.getString("id_reserva"));
+                a.setFecha_solicitud(rs.getString("fecha_solicitud"));
+                a.setHora_solicitud(rs.getString("hora_solicitud"));
+                a.setOrigen(rs.getString("origen"));
+                a.setDestino(rs.getString("destino"));
+                a.setEstado(rs.getString("estado"));
+                a.setConductor(rs.getString("conductor"));
+                a.setAuto(rs.getString("auto"));
+                a.setPatente(rs.getString("patente"));
+                a.setFecha_reserva(rs.getString("fecha_reserva"));
+                a.setCantidad_personas(rs.getString("cantidad_personas"));
+                a.setFecha_salida(rs.getString("fecha_salida"));
+                a.setRut(rs.getString("rut"));
+                a.setId_departamento(rs.getString("id_departamento"));
+                a.setNombre(rs.getString("nombre"));
+                a.setCorreo(rs.getString("correo"));
+                a.setTelefono(rs.getString("telefono"));
+
+            }
+        } catch (Exception e) {
+        }
+        return a;
     }
 
 }

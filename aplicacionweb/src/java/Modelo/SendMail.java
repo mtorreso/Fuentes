@@ -17,9 +17,11 @@ public class SendMail {
 
     public static void send(String m, String sub, String messg) {
 
-        final String user = "alejandro.torresolivos@gmail.com";
+       // final String user = "alejandro.torresolivos@gmail.com";
+        final String user = "turismorealduoc@gmail.com";
 
-        final String pass = "21101992";
+       // final String pass = "21101992";
+        final String pass = "portafolio";
 
         Properties props = new Properties();
 
@@ -33,9 +35,9 @@ public class SendMail {
 
         props.put("mail.host", "gmail");
 
-        props.put("mail.user", "alejandro.torresolivos@gmail.com");
+        props.put("mail.user", "turismorealduoc@gmail.com");
 
-        props.put("mail.password", "21101992");
+        props.put("mail.password", "portafolio");
 
         props.put("mail.port", "465");
 

@@ -690,8 +690,8 @@
                                     out.println("Sin Asignación");
                                     out.print("</span>");
                                 } else if (d.getEstado().equals("1")) {
-                                    out.print("<span class='btn btn-danger'>");
-                                    out.println("<a href='SrvMissolicitudes?accion=detalle&id_solicitud=" + d.getIdSolicitud()+ "' class='btn btn-danger btn-xs' role='button' '>Anular<span class='glyphicon glyphicon-trash'></span></a>");
+                                    out.print("<span class=''>");
+                                    out.println("<a href='Solicitudtransporte?accion=detalle&id_solicitud=" + d.getIdSolicitud()+ "' class='btn btn-primary active btn-xs' role='button' '>Ver Asignación<span class=''></span></a>");
                                     out.print("</span>");
                                 }
 

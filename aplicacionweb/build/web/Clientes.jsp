@@ -647,7 +647,7 @@
                             <td><a href="SrvReservasCliente?accion=reservas&rut=<%= c.getRut()%>" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a></td>
                             <td>
                                 <a href="Modifica_cliente.jsp?id_usuario=<%= c.getIdUsuario()%>&rut=<%= c.getRut()%>&nombre=<%= c.getNombre()%>&correo=<%= c.getCorreo()%>&telefono=<%= c.getTelefono()%>" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a href="EliminarCliente?accion=eliminar&id=<%= c.getIdUsuario()%>" class="delete"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                <a href="EliminarCliente?accion=eliminar&id=<%= c.getIdUsuario()%>&correo=<%= c.getCorreo()%>&nombre=<%= c.getNombre()%>" class="delete"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                             </td>
                         </tr>
                         <%}%>

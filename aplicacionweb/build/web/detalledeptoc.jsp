@@ -185,6 +185,22 @@
                                         out.print(sesion.getAttribute("rut"));
                                     }
                                        %>">
+                                <input type="hidden" name="correo" class="form-control" id="correo"  value="<%
+                                    //preguntamo por la variable de sesion creada en el servlet
+                                    if (sesion.getAttribute("email") != null) {
+                                        out.print(sesion.getAttribute("email"));
+                                    }
+                                       %>">
+
+                                <input type="hidden" name="departamento" class="form-control" id="departamento"  value="<%=d.getNombre()%>">
+                                <input type="hidden" name="direccion" class="form-control" id="direccion"  value="<%=d.getDireccion()%>">
+                                <input type="hidden" name="ubicacion" class="form-control" id="ubicacion"  value="<%=d.getUbicacion()%>">
+                                <input type="hidden" name="dormitorios" class="form-control" id="dormitorios"  value="<%=d.getHabitaciones()%>">
+                                <input type="hidden" name="banos" class="form-control" id="banos"  value="<%=d.getBanos()%>">
+                                <input type="hidden" name="valor" class="form-control" id="valor"  value="<%=d.getValorarriendo()%>">
+
+
+
                                 <input type="submit" class="btn btn-primary active" value="Iniciar Reserva">   
                             </form>
 

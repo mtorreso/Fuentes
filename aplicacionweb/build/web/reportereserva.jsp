@@ -57,21 +57,7 @@
             </div>
             <!-- Collection of nav links, forms, and other content for toggling -->
             <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">		
-                <form class="navbar-form form-inline">
-                    <div class="input-group search-box">								
-
-                        <select data-placeholder="Seleccionar Comuna..." class="form-control chosen-select" multiple tabindex="4" wrap-price>
-                            <option>Seleccionar Comuna</option>
-                            <%
-                                LocalidadService loc = new LocalidadService();
-                                List<Localidad> datos = loc.listarLocalidades();
-                                for (Localidad d : datos) {
-                            %>
-                            <option value="<%= d.getNombreLocalidad()%>"><%= d.getNombreLocalidad()%></option>  
-                            <%}%>
-                        </select>
-                    </div>
-                </form>
+        
                 <ul class="nav navbar-nav navbar-right ml-auto">
                     <li class="nav-item active "><a href="indexcliente.jsp" class="nav-link"><i class="fa fa-home"></i><span>Home</span></a></li>
                     <li class="nav-item active"><a href="SrvMisReservas?accion=reservas&rut=<%
@@ -119,7 +105,7 @@
                                 </div>
                                 <div class="col-xs-7 col-sm-6 col-md-6 text-center">
                                     <div class="receipt-right">
-                                        <h5>Comprobante de Reserva N°</h5>
+                                        <h5>Comprobante de Reserva</h5>
                                     </div>
                                 </div>
                             </div>
@@ -130,7 +116,6 @@
                                 <div class="col-xs-8 col-sm-8 col-md-8 text-left">
                                     <div class="receipt-right">
                                         <h5>Turismo Real<small></small></h5>
-                                        <p><b>Email :</b> contacto@turismoreal.cl</p>
                                     </div>
                                 </div>
 
@@ -179,7 +164,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>N° de Folio</td>
+                                        <td></td>
                                         <td></td>
                                     </tr>
                                     <tr>

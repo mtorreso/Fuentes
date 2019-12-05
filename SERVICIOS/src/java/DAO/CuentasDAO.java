@@ -122,7 +122,6 @@ public class CuentasDAO {
         }
         return msj;
     }
-    
 
     public String modificarUsuario(int id_usuario, String rut, String nombre, String correo, String telefono) {
         String sql = "update usuario set rut=?,nombre=?,correo=?,telefono=? where id_usuario=" + id_usuario;
@@ -264,6 +263,25 @@ public class CuentasDAO {
         } catch (Exception e) {
         }
         return u;
+    }
+
+    public String actualizarperfil(String rut, String nombre, String clave) {
+        String sql = "update usuario set nombre=?,clave=? where rut = '" + rut + "'";
+        try {
+            con = conex.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, nombre);
+            ps.setString(2, clave);
+            res = ps.executeUpdate();
+            if (res == 1) {
+                msj = "Perfil Actualizado Correctamente";
+            } else {
+                msj = "Error en la actualización";
+            }
+
+        } catch (Exception e) {
+        }
+        return msj;
     }
 
 }

@@ -13,6 +13,7 @@ import DAO.InventarioDAO;
 import DAO.ReservaDAO;
 import DAO.ServicioDAO;
 import DAO.SolicitudtransporteDAO;
+import Modelo.Asignacionestransporte;
 import Modelo.Categoria;
 import Modelo.Checkin;
 import Modelo.Checkout;
@@ -395,8 +396,8 @@ public class Servicios {
         List datos = rdao.listarreservaspornumeropersonas(cantidad_personas);
         return datos;
     }
-    
-        @WebMethod(operationName = "listarreservasporcomuna")
+
+    @WebMethod(operationName = "listarreservasporcomuna")
     public List<Reservas> listarreservasporcomuna(@WebParam(name = "comuna") String comuna) {
         List datos = rdao.listarreservasporcomuna(comuna);
         return datos;
@@ -406,5 +407,17 @@ public class Servicios {
     public List<Solicitudes> listarsolicitudesporfechas(@WebParam(name = "fechainicial") String fechainicial, @WebParam(name = "fechafinal") String fechafinal) {
         List datos = st.listarsolicitudesporfechas(fechainicial, fechafinal);
         return datos;
+    }
+
+    @WebMethod(operationName = "actualizarperfil")
+    public String actualizarperfil(@WebParam(name = "rut") String rut, @WebParam(name = "nombre") String nombre, @WebParam(name = "clave") String clave) {
+        String datos = cuentas.actualizarperfil(rut, nombre, clave);
+        return datos;
+    }
+
+    @WebMethod(operationName = "Detalleasignacion")
+    public Asignacionestransporte Detalleasignacion(@WebParam(name = "id_solicitud") int id_solicitud) {
+        Asignacionestransporte Detalleasignacion = st.Detalleasignacion(id_solicitud);
+        return Detalleasignacion;
     }
 }

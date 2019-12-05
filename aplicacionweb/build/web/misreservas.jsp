@@ -399,10 +399,11 @@
                                 <a href='SrvMisReservas?accion=ficha&id_reserva=<%= d.getIdReserva()%>&id=<%= d.getIdDepartamento()%>' class='btn btn-success btn-xs' role='button'>Revisar <span class='glyphicon glyphicon-book'></span></a>
                             </td>
                             <td><%
-                                out.print("<span class=''>");
-                                out.println("<a href='SrvMisReservas?accion=eliminar&id_reserva=" + d.getIdReserva() + "&id_departamento=" + d.getIdDepartamento() + "&habilitado=1' class='btn btn-danger btn-xs' role='button' onclick='return confirm(\"Seguro que desea anular la reserva?\")'>Anular<span class='glyphicon glyphicon-trash'></span></a>");
-                                out.print("</span>");
-
+                                if (sesion.getAttribute("email") != null) {
+                                    out.print("<span class=''>");
+                                    out.println("<a href='SrvMisReservas?accion=eliminar&id_reserva=" + d.getIdReserva() + "&id_departamento=" + d.getIdDepartamento() + "&habilitado=1&rut=" + d.getRut() + "&correo=" + sesion.getAttribute("email") + "' class='btn btn-danger btn-xs' role='button' onclick='return confirm(\"Seguro que desea anular la reserva?\")'>Anular<span class='glyphicon glyphicon-trash'></span></a>");
+                                    out.print("</span>");
+                                }
                                 %>
                         </tr>
                         <%}%>

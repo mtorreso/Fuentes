@@ -30,6 +30,8 @@ public class ObjectFactory {
     private final static QName _BuscarServicioResponse_QNAME = new QName("http://WebService/", "BuscarServicioResponse");
     private final static QName _CrearCuenta_QNAME = new QName("http://WebService/", "CrearCuenta");
     private final static QName _CrearCuentaResponse_QNAME = new QName("http://WebService/", "CrearCuentaResponse");
+    private final static QName _Detalleasignacion_QNAME = new QName("http://WebService/", "Detalleasignacion");
+    private final static QName _DetalleasignacionResponse_QNAME = new QName("http://WebService/", "DetalleasignacionResponse");
     private final static QName _Eliminardepartamento_QNAME = new QName("http://WebService/", "Eliminardepartamento");
     private final static QName _EliminardepartamentoResponse_QNAME = new QName("http://WebService/", "EliminardepartamentoResponse");
     private final static QName _IDReserva_QNAME = new QName("http://WebService/", "IDReserva");
@@ -48,6 +50,8 @@ public class ObjectFactory {
     private final static QName _ActualizarestadodepartamentoResponse_QNAME = new QName("http://WebService/", "actualizarestadodepartamentoResponse");
     private final static QName _Actualizarestadosolicitud_QNAME = new QName("http://WebService/", "actualizarestadosolicitud");
     private final static QName _ActualizarestadosolicitudResponse_QNAME = new QName("http://WebService/", "actualizarestadosolicitudResponse");
+    private final static QName _Actualizarperfil_QNAME = new QName("http://WebService/", "actualizarperfil");
+    private final static QName _ActualizarperfilResponse_QNAME = new QName("http://WebService/", "actualizarperfilResponse");
     private final static QName _AgregarReserva_QNAME = new QName("http://WebService/", "agregarReserva");
     private final static QName _AgregarReservaResponse_QNAME = new QName("http://WebService/", "agregarReservaResponse");
     private final static QName _Agregardepartamento_QNAME = new QName("http://WebService/", "agregardepartamento");
@@ -182,6 +186,22 @@ public class ObjectFactory {
      */
     public CrearCuentaResponse createCrearCuentaResponse() {
         return new CrearCuentaResponse();
+    }
+
+    /**
+     * Create an instance of {@link Detalleasignacion }
+     * 
+     */
+    public Detalleasignacion createDetalleasignacion() {
+        return new Detalleasignacion();
+    }
+
+    /**
+     * Create an instance of {@link DetalleasignacionResponse }
+     * 
+     */
+    public DetalleasignacionResponse createDetalleasignacionResponse() {
+        return new DetalleasignacionResponse();
     }
 
     /**
@@ -326,6 +346,22 @@ public class ObjectFactory {
      */
     public ActualizarestadosolicitudResponse createActualizarestadosolicitudResponse() {
         return new ActualizarestadosolicitudResponse();
+    }
+
+    /**
+     * Create an instance of {@link Actualizarperfil }
+     * 
+     */
+    public Actualizarperfil createActualizarperfil() {
+        return new Actualizarperfil();
+    }
+
+    /**
+     * Create an instance of {@link ActualizarperfilResponse }
+     * 
+     */
+    public ActualizarperfilResponse createActualizarperfilResponse() {
+        return new ActualizarperfilResponse();
     }
 
     /**
@@ -1001,6 +1037,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Asignacionestransporte }
+     * 
+     */
+    public Asignacionestransporte createAsignacionestransporte() {
+        return new Asignacionestransporte();
+    }
+
+    /**
      * Create an instance of {@link Inventario }
      * 
      */
@@ -1033,19 +1077,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Serviciosdepto }
-     * 
-     */
-    public Serviciosdepto createServiciosdepto() {
-        return new Serviciosdepto();
-    }
-
-    /**
      * Create an instance of {@link Solicitudes }
      * 
      */
     public Solicitudes createSolicitudes() {
         return new Solicitudes();
+    }
+
+    /**
+     * Create an instance of {@link Serviciosdepto }
+     * 
+     */
+    public Serviciosdepto createServiciosdepto() {
+        return new Serviciosdepto();
     }
 
     /**
@@ -1140,6 +1184,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://WebService/", name = "CrearCuentaResponse")
     public JAXBElement<CrearCuentaResponse> createCrearCuentaResponse(CrearCuentaResponse value) {
         return new JAXBElement<CrearCuentaResponse>(_CrearCuentaResponse_QNAME, CrearCuentaResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Detalleasignacion }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://WebService/", name = "Detalleasignacion")
+    public JAXBElement<Detalleasignacion> createDetalleasignacion(Detalleasignacion value) {
+        return new JAXBElement<Detalleasignacion>(_Detalleasignacion_QNAME, Detalleasignacion.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DetalleasignacionResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://WebService/", name = "DetalleasignacionResponse")
+    public JAXBElement<DetalleasignacionResponse> createDetalleasignacionResponse(DetalleasignacionResponse value) {
+        return new JAXBElement<DetalleasignacionResponse>(_DetalleasignacionResponse_QNAME, DetalleasignacionResponse.class, null, value);
     }
 
     /**
@@ -1302,6 +1364,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://WebService/", name = "actualizarestadosolicitudResponse")
     public JAXBElement<ActualizarestadosolicitudResponse> createActualizarestadosolicitudResponse(ActualizarestadosolicitudResponse value) {
         return new JAXBElement<ActualizarestadosolicitudResponse>(_ActualizarestadosolicitudResponse_QNAME, ActualizarestadosolicitudResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Actualizarperfil }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://WebService/", name = "actualizarperfil")
+    public JAXBElement<Actualizarperfil> createActualizarperfil(Actualizarperfil value) {
+        return new JAXBElement<Actualizarperfil>(_Actualizarperfil_QNAME, Actualizarperfil.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ActualizarperfilResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://WebService/", name = "actualizarperfilResponse")
+    public JAXBElement<ActualizarperfilResponse> createActualizarperfilResponse(ActualizarperfilResponse value) {
+        return new JAXBElement<ActualizarperfilResponse>(_ActualizarperfilResponse_QNAME, ActualizarperfilResponse.class, null, value);
     }
 
     /**

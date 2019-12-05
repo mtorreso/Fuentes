@@ -27,6 +27,597 @@ public interface Servicios {
 
     /**
      * 
+     * @param rut
+     * @param idDepartamento
+     * @param cantidadPersonas
+     * @param fechaSalida
+     * @param fechaReserva
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "agregarReserva", targetNamespace = "http://WebService/", className = "webservice.AgregarReserva")
+    @ResponseWrapper(localName = "agregarReservaResponse", targetNamespace = "http://WebService/", className = "webservice.AgregarReservaResponse")
+    @Action(input = "http://WebService/Servicios/agregarReservaRequest", output = "http://WebService/Servicios/agregarReservaResponse")
+    public String agregarReserva(
+        @WebParam(name = "fecha_reserva", targetNamespace = "")
+        String fechaReserva,
+        @WebParam(name = "cantidad_personas", targetNamespace = "")
+        String cantidadPersonas,
+        @WebParam(name = "fecha_salida", targetNamespace = "")
+        String fechaSalida,
+        @WebParam(name = "rut", targetNamespace = "")
+        String rut,
+        @WebParam(name = "id_departamento", targetNamespace = "")
+        String idDepartamento);
+
+    /**
+     * 
+     * @param descripcion
+     * @param estado
+     * @param categoria
+     * @param producto
+     * @param cantidad
+     * @param idDepto
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "nuevoinventario", targetNamespace = "http://WebService/", className = "webservice.Nuevoinventario")
+    @ResponseWrapper(localName = "nuevoinventarioResponse", targetNamespace = "http://WebService/", className = "webservice.NuevoinventarioResponse")
+    @Action(input = "http://WebService/Servicios/nuevoinventarioRequest", output = "http://WebService/Servicios/nuevoinventarioResponse")
+    public String nuevoinventario(
+        @WebParam(name = "id_depto", targetNamespace = "")
+        String idDepto,
+        @WebParam(name = "producto", targetNamespace = "")
+        String producto,
+        @WebParam(name = "cantidad", targetNamespace = "")
+        String cantidad,
+        @WebParam(name = "estado", targetNamespace = "")
+        String estado,
+        @WebParam(name = "descripcion", targetNamespace = "")
+        String descripcion,
+        @WebParam(name = "categoria", targetNamespace = "")
+        String categoria);
+
+    /**
+     * 
+     * @param ubicacion
+     * @return
+     *     returns java.util.List<webservice.Departamento>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarDeptos", targetNamespace = "http://WebService/", className = "webservice.ListarDeptos")
+    @ResponseWrapper(localName = "listarDeptosResponse", targetNamespace = "http://WebService/", className = "webservice.ListarDeptosResponse")
+    @Action(input = "http://WebService/Servicios/listarDeptosRequest", output = "http://WebService/Servicios/listarDeptosResponse")
+    public List<Departamento> listarDeptos(
+        @WebParam(name = "ubicacion", targetNamespace = "")
+        String ubicacion);
+
+    /**
+     * 
+     * @param rut
+     * @return
+     *     returns java.util.List<webservice.Reservas>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarReservas", targetNamespace = "http://WebService/", className = "webservice.ListarReservas")
+    @ResponseWrapper(localName = "listarReservasResponse", targetNamespace = "http://WebService/", className = "webservice.ListarReservasResponse")
+    @Action(input = "http://WebService/Servicios/listarReservasRequest", output = "http://WebService/Servicios/listarReservasResponse")
+    public List<Reservas> listarReservas(
+        @WebParam(name = "rut", targetNamespace = "")
+        String rut);
+
+    /**
+     * 
+     * @param correo
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "retornarRut", targetNamespace = "http://WebService/", className = "webservice.RetornarRut")
+    @ResponseWrapper(localName = "retornarRutResponse", targetNamespace = "http://WebService/", className = "webservice.RetornarRutResponse")
+    @Action(input = "http://WebService/Servicios/retornarRutRequest", output = "http://WebService/Servicios/retornarRutResponse")
+    public String retornarRut(
+        @WebParam(name = "correo", targetNamespace = "")
+        String correo);
+
+    /**
+     * 
+     * @param id
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "eliminarUsuario", targetNamespace = "http://WebService/", className = "webservice.EliminarUsuario")
+    @ResponseWrapper(localName = "eliminarUsuarioResponse", targetNamespace = "http://WebService/", className = "webservice.EliminarUsuarioResponse")
+    @Action(input = "http://WebService/Servicios/eliminarUsuarioRequest", output = "http://WebService/Servicios/eliminarUsuarioResponse")
+    public String eliminarUsuario(
+        @WebParam(name = "id", targetNamespace = "")
+        int id);
+
+    /**
+     * 
+     * @param rut
+     * @param idUsuario
+     * @param correo
+     * @param telefono
+     * @param nombre
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "modificarUsuario", targetNamespace = "http://WebService/", className = "webservice.ModificarUsuario")
+    @ResponseWrapper(localName = "modificarUsuarioResponse", targetNamespace = "http://WebService/", className = "webservice.ModificarUsuarioResponse")
+    @Action(input = "http://WebService/Servicios/modificarUsuarioRequest", output = "http://WebService/Servicios/modificarUsuarioResponse")
+    public String modificarUsuario(
+        @WebParam(name = "id_usuario", targetNamespace = "")
+        int idUsuario,
+        @WebParam(name = "rut", targetNamespace = "")
+        String rut,
+        @WebParam(name = "nombre", targetNamespace = "")
+        String nombre,
+        @WebParam(name = "correo", targetNamespace = "")
+        String correo,
+        @WebParam(name = "telefono", targetNamespace = "")
+        String telefono);
+
+    /**
+     * 
+     * @param correo
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "retornarNombre", targetNamespace = "http://WebService/", className = "webservice.RetornarNombre")
+    @ResponseWrapper(localName = "retornarNombreResponse", targetNamespace = "http://WebService/", className = "webservice.RetornarNombreResponse")
+    @Action(input = "http://WebService/Servicios/retornarNombreRequest", output = "http://WebService/Servicios/retornarNombreResponse")
+    public String retornarNombre(
+        @WebParam(name = "correo", targetNamespace = "")
+        String correo);
+
+    /**
+     * 
+     * @param clave
+     * @param correo
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "validaUsuario", targetNamespace = "http://WebService/", className = "webservice.ValidaUsuario")
+    @ResponseWrapper(localName = "validaUsuarioResponse", targetNamespace = "http://WebService/", className = "webservice.ValidaUsuarioResponse")
+    @Action(input = "http://WebService/Servicios/validaUsuarioRequest", output = "http://WebService/Servicios/validaUsuarioResponse")
+    public String validaUsuario(
+        @WebParam(name = "correo", targetNamespace = "")
+        String correo,
+        @WebParam(name = "clave", targetNamespace = "")
+        String clave);
+
+    /**
+     * 
+     * @param id
+     * @return
+     *     returns java.util.List<webservice.Inventarios>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarInventario", targetNamespace = "http://WebService/", className = "webservice.ListarInventario")
+    @ResponseWrapper(localName = "listarInventarioResponse", targetNamespace = "http://WebService/", className = "webservice.ListarInventarioResponse")
+    @Action(input = "http://WebService/Servicios/listarInventarioRequest", output = "http://WebService/Servicios/listarInventarioResponse")
+    public List<Inventarios> listarInventario(
+        @WebParam(name = "id", targetNamespace = "")
+        int id);
+
+    /**
+     * 
+     * @param fechaContratacion
+     * @param idSrv
+     * @param idReserva
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "contratarservicio", targetNamespace = "http://WebService/", className = "webservice.Contratarservicio")
+    @ResponseWrapper(localName = "contratarservicioResponse", targetNamespace = "http://WebService/", className = "webservice.ContratarservicioResponse")
+    @Action(input = "http://WebService/Servicios/contratarservicioRequest", output = "http://WebService/Servicios/contratarservicioResponse")
+    public String contratarservicio(
+        @WebParam(name = "fecha_contratacion", targetNamespace = "")
+        String fechaContratacion,
+        @WebParam(name = "id_srv", targetNamespace = "")
+        String idSrv,
+        @WebParam(name = "id_reserva", targetNamespace = "")
+        String idReserva);
+
+    /**
+     * 
+     * @param idReserva
+     * @return
+     *     returns java.util.List<webservice.Solicitudtransporte>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarmissolicitudes", targetNamespace = "http://WebService/", className = "webservice.Listarmissolicitudes")
+    @ResponseWrapper(localName = "listarmissolicitudesResponse", targetNamespace = "http://WebService/", className = "webservice.ListarmissolicitudesResponse")
+    @Action(input = "http://WebService/Servicios/listarmissolicitudesRequest", output = "http://WebService/Servicios/listarmissolicitudesResponse")
+    public List<Solicitudtransporte> listarmissolicitudes(
+        @WebParam(name = "id_reserva", targetNamespace = "")
+        String idReserva);
+
+    /**
+     * 
+     * @param idInv
+     * @param descripcion
+     * @param estado
+     * @param categoria
+     * @param producto
+     * @param cantidad
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "modificarInventario", targetNamespace = "http://WebService/", className = "webservice.ModificarInventario")
+    @ResponseWrapper(localName = "modificarInventarioResponse", targetNamespace = "http://WebService/", className = "webservice.ModificarInventarioResponse")
+    @Action(input = "http://WebService/Servicios/modificarInventarioRequest", output = "http://WebService/Servicios/modificarInventarioResponse")
+    public String modificarInventario(
+        @WebParam(name = "id_inv", targetNamespace = "")
+        int idInv,
+        @WebParam(name = "producto", targetNamespace = "")
+        String producto,
+        @WebParam(name = "cantidad", targetNamespace = "")
+        String cantidad,
+        @WebParam(name = "estado", targetNamespace = "")
+        String estado,
+        @WebParam(name = "descripcion", targetNamespace = "")
+        String descripcion,
+        @WebParam(name = "categoria", targetNamespace = "")
+        String categoria);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<webservice.Departamento>
+     */
+    @WebMethod(operationName = "ListarHabilitados")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "ListarHabilitados", targetNamespace = "http://WebService/", className = "webservice.ListarHabilitados")
+    @ResponseWrapper(localName = "ListarHabilitadosResponse", targetNamespace = "http://WebService/", className = "webservice.ListarHabilitadosResponse")
+    @Action(input = "http://WebService/Servicios/ListarHabilitadosRequest", output = "http://WebService/Servicios/ListarHabilitadosResponse")
+    public List<Departamento> listarHabilitados();
+
+    /**
+     * 
+     * @param id
+     * @param habilitado
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "actualizarestadodepartamento", targetNamespace = "http://WebService/", className = "webservice.Actualizarestadodepartamento")
+    @ResponseWrapper(localName = "actualizarestadodepartamentoResponse", targetNamespace = "http://WebService/", className = "webservice.ActualizarestadodepartamentoResponse")
+    @Action(input = "http://WebService/Servicios/actualizarestadodepartamentoRequest", output = "http://WebService/Servicios/actualizarestadodepartamentoResponse")
+    public String actualizarestadodepartamento(
+        @WebParam(name = "id", targetNamespace = "")
+        int id,
+        @WebParam(name = "habilitado", targetNamespace = "")
+        String habilitado);
+
+    /**
+     * 
+     * @param idInv
+     * @return
+     *     returns webservice.Inventario
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "detalleinventario", targetNamespace = "http://WebService/", className = "webservice.Detalleinventario")
+    @ResponseWrapper(localName = "detalleinventarioResponse", targetNamespace = "http://WebService/", className = "webservice.DetalleinventarioResponse")
+    @Action(input = "http://WebService/Servicios/detalleinventarioRequest", output = "http://WebService/Servicios/detalleinventarioResponse")
+    public Inventario detalleinventario(
+        @WebParam(name = "id_inv", targetNamespace = "")
+        int idInv);
+
+    /**
+     * 
+     * @param precio
+     * @param idSrv
+     * @param nombreSrv
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "modificarServicio", targetNamespace = "http://WebService/", className = "webservice.ModificarServicio")
+    @ResponseWrapper(localName = "modificarServicioResponse", targetNamespace = "http://WebService/", className = "webservice.ModificarServicioResponse")
+    @Action(input = "http://WebService/Servicios/modificarServicioRequest", output = "http://WebService/Servicios/modificarServicioResponse")
+    public String modificarServicio(
+        @WebParam(name = "id_srv", targetNamespace = "")
+        int idSrv,
+        @WebParam(name = "nombre_srv", targetNamespace = "")
+        String nombreSrv,
+        @WebParam(name = "precio", targetNamespace = "")
+        String precio);
+
+    /**
+     * 
+     * @param idReserva
+     * @return
+     *     returns java.util.List<webservice.Servicioreserva>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "servicioscontratados", targetNamespace = "http://WebService/", className = "webservice.Servicioscontratados")
+    @ResponseWrapper(localName = "servicioscontratadosResponse", targetNamespace = "http://WebService/", className = "webservice.ServicioscontratadosResponse")
+    @Action(input = "http://WebService/Servicios/servicioscontratadosRequest", output = "http://WebService/Servicios/servicioscontratadosResponse")
+    public List<Servicioreserva> servicioscontratados(
+        @WebParam(name = "id_reserva", targetNamespace = "")
+        String idReserva);
+
+    /**
+     * 
+     * @param cantidadPersonas
+     * @return
+     *     returns java.util.List<webservice.Reservas>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarreservaspornumeropersonas", targetNamespace = "http://WebService/", className = "webservice.Listarreservaspornumeropersonas")
+    @ResponseWrapper(localName = "listarreservaspornumeropersonasResponse", targetNamespace = "http://WebService/", className = "webservice.ListarreservaspornumeropersonasResponse")
+    @Action(input = "http://WebService/Servicios/listarreservaspornumeropersonasRequest", output = "http://WebService/Servicios/listarreservaspornumeropersonasResponse")
+    public List<Reservas> listarreservaspornumeropersonas(
+        @WebParam(name = "cantidad_personas", targetNamespace = "")
+        String cantidadPersonas);
+
+    /**
+     * 
+     * @param fechainicial
+     * @param fechafinal
+     * @return
+     *     returns java.util.List<webservice.Solicitudes>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarsolicitudesporfechas", targetNamespace = "http://WebService/", className = "webservice.Listarsolicitudesporfechas")
+    @ResponseWrapper(localName = "listarsolicitudesporfechasResponse", targetNamespace = "http://WebService/", className = "webservice.ListarsolicitudesporfechasResponse")
+    @Action(input = "http://WebService/Servicios/listarsolicitudesporfechasRequest", output = "http://WebService/Servicios/listarsolicitudesporfechasResponse")
+    public List<Solicitudes> listarsolicitudesporfechas(
+        @WebParam(name = "fechainicial", targetNamespace = "")
+        String fechainicial,
+        @WebParam(name = "fechafinal", targetNamespace = "")
+        String fechafinal);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<webservice.Solicitudes>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarsolicitudes", targetNamespace = "http://WebService/", className = "webservice.Listarsolicitudes")
+    @ResponseWrapper(localName = "listarsolicitudesResponse", targetNamespace = "http://WebService/", className = "webservice.ListarsolicitudesResponse")
+    @Action(input = "http://WebService/Servicios/listarsolicitudesRequest", output = "http://WebService/Servicios/listarsolicitudesResponse")
+    public List<Solicitudes> listarsolicitudes();
+
+    /**
+     * 
+     * @param comuna
+     * @return
+     *     returns java.util.List<webservice.Reservas>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarreservasporcomuna", targetNamespace = "http://WebService/", className = "webservice.Listarreservasporcomuna")
+    @ResponseWrapper(localName = "listarreservasporcomunaResponse", targetNamespace = "http://WebService/", className = "webservice.ListarreservasporcomunaResponse")
+    @Action(input = "http://WebService/Servicios/listarreservasporcomunaRequest", output = "http://WebService/Servicios/listarreservasporcomunaResponse")
+    public List<Reservas> listarreservasporcomuna(
+        @WebParam(name = "comuna", targetNamespace = "")
+        String comuna);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<webservice.Reservas>
+     */
+    @WebMethod(operationName = "Listar3omaspersonas")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "Listar3omaspersonas", targetNamespace = "http://WebService/", className = "webservice.Listar3Omaspersonas")
+    @ResponseWrapper(localName = "Listar3omaspersonasResponse", targetNamespace = "http://WebService/", className = "webservice.Listar3OmaspersonasResponse")
+    @Action(input = "http://WebService/Servicios/Listar3omaspersonasRequest", output = "http://WebService/Servicios/Listar3omaspersonasResponse")
+    public List<Reservas> listar3Omaspersonas();
+
+    /**
+     * 
+     * @param fechainicial
+     * @param fechafinal
+     * @return
+     *     returns java.util.List<webservice.Reservas>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarreservasporfechas", targetNamespace = "http://WebService/", className = "webservice.Listarreservasporfechas")
+    @ResponseWrapper(localName = "listarreservasporfechasResponse", targetNamespace = "http://WebService/", className = "webservice.ListarreservasporfechasResponse")
+    @Action(input = "http://WebService/Servicios/listarreservasporfechasRequest", output = "http://WebService/Servicios/listarreservasporfechasResponse")
+    public List<Reservas> listarreservasporfechas(
+        @WebParam(name = "fechainicial", targetNamespace = "")
+        String fechainicial,
+        @WebParam(name = "fechafinal", targetNamespace = "")
+        String fechafinal);
+
+    /**
+     * 
+     * @param auto
+     * @param idSolicitud
+     * @param conductor
+     * @param patente
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "nuevaplanificacion", targetNamespace = "http://WebService/", className = "webservice.Nuevaplanificacion")
+    @ResponseWrapper(localName = "nuevaplanificacionResponse", targetNamespace = "http://WebService/", className = "webservice.NuevaplanificacionResponse")
+    @Action(input = "http://WebService/Servicios/nuevaplanificacionRequest", output = "http://WebService/Servicios/nuevaplanificacionResponse")
+    public String nuevaplanificacion(
+        @WebParam(name = "id_solicitud", targetNamespace = "")
+        String idSolicitud,
+        @WebParam(name = "conductor", targetNamespace = "")
+        String conductor,
+        @WebParam(name = "auto", targetNamespace = "")
+        String auto,
+        @WebParam(name = "patente", targetNamespace = "")
+        String patente);
+
+    /**
+     * 
+     * @param estado
+     * @param idSolicitud
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "actualizarestadosolicitud", targetNamespace = "http://WebService/", className = "webservice.Actualizarestadosolicitud")
+    @ResponseWrapper(localName = "actualizarestadosolicitudResponse", targetNamespace = "http://WebService/", className = "webservice.ActualizarestadosolicitudResponse")
+    @Action(input = "http://WebService/Servicios/actualizarestadosolicitudRequest", output = "http://WebService/Servicios/actualizarestadosolicitudResponse")
+    public String actualizarestadosolicitud(
+        @WebParam(name = "id_solicitud", targetNamespace = "")
+        int idSolicitud,
+        @WebParam(name = "estado", targetNamespace = "")
+        String estado);
+
+    /**
+     * 
+     * @param id
+     * @return
+     *     returns webservice.Serviciosdepto
+     */
+    @WebMethod(operationName = "BuscarServicio")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "BuscarServicio", targetNamespace = "http://WebService/", className = "webservice.BuscarServicio")
+    @ResponseWrapper(localName = "BuscarServicioResponse", targetNamespace = "http://WebService/", className = "webservice.BuscarServicioResponse")
+    @Action(input = "http://WebService/Servicios/BuscarServicioRequest", output = "http://WebService/Servicios/BuscarServicioResponse")
+    public Serviciosdepto buscarServicio(
+        @WebParam(name = "id", targetNamespace = "")
+        int id);
+
+    /**
+     * 
+     * @param id
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "eliminarservicio", targetNamespace = "http://WebService/", className = "webservice.Eliminarservicio")
+    @ResponseWrapper(localName = "eliminarservicioResponse", targetNamespace = "http://WebService/", className = "webservice.EliminarservicioResponse")
+    @Action(input = "http://WebService/Servicios/eliminarservicioRequest", output = "http://WebService/Servicios/eliminarservicioResponse")
+    public String eliminarservicio(
+        @WebParam(name = "id", targetNamespace = "")
+        int id);
+
+    /**
+     * 
+     * @param descripcion
+     * @param fechaCheckout
+     * @param idReserva
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "nuevocheckout", targetNamespace = "http://WebService/", className = "webservice.Nuevocheckout")
+    @ResponseWrapper(localName = "nuevocheckoutResponse", targetNamespace = "http://WebService/", className = "webservice.NuevocheckoutResponse")
+    @Action(input = "http://WebService/Servicios/nuevocheckoutRequest", output = "http://WebService/Servicios/nuevocheckoutResponse")
+    public String nuevocheckout(
+        @WebParam(name = "fecha_checkout", targetNamespace = "")
+        String fechaCheckout,
+        @WebParam(name = "descripcion", targetNamespace = "")
+        String descripcion,
+        @WebParam(name = "id_reserva", targetNamespace = "")
+        String idReserva);
+
+    /**
+     * 
+     * @param idDepartamento
+     * @param precio
+     * @param nombreSrv
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "nuevoservicio", targetNamespace = "http://WebService/", className = "webservice.Nuevoservicio")
+    @ResponseWrapper(localName = "nuevoservicioResponse", targetNamespace = "http://WebService/", className = "webservice.NuevoservicioResponse")
+    @Action(input = "http://WebService/Servicios/nuevoservicioRequest", output = "http://WebService/Servicios/nuevoservicioResponse")
+    public String nuevoservicio(
+        @WebParam(name = "nombre_srv", targetNamespace = "")
+        String nombreSrv,
+        @WebParam(name = "precio", targetNamespace = "")
+        String precio,
+        @WebParam(name = "id_departamento", targetNamespace = "")
+        String idDepartamento);
+
+    /**
+     * 
+     * @param descripcion
+     * @param idReserva
+     * @param fechaCheckin
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "nuevocheckin", targetNamespace = "http://WebService/", className = "webservice.Nuevocheckin")
+    @ResponseWrapper(localName = "nuevocheckinResponse", targetNamespace = "http://WebService/", className = "webservice.NuevocheckinResponse")
+    @Action(input = "http://WebService/Servicios/nuevocheckinRequest", output = "http://WebService/Servicios/nuevocheckinResponse")
+    public String nuevocheckin(
+        @WebParam(name = "fecha_checkin", targetNamespace = "")
+        String fechaCheckin,
+        @WebParam(name = "descripcion", targetNamespace = "")
+        String descripcion,
+        @WebParam(name = "id_reserva", targetNamespace = "")
+        String idReserva);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<webservice.Usuario>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarcuentas", targetNamespace = "http://WebService/", className = "webservice.Listarcuentas")
+    @ResponseWrapper(localName = "listarcuentasResponse", targetNamespace = "http://WebService/", className = "webservice.ListarcuentasResponse")
+    @Action(input = "http://WebService/Servicios/listarcuentasRequest", output = "http://WebService/Servicios/listarcuentasResponse")
+    public List<Usuario> listarcuentas();
+
+    /**
+     * 
+     * @param idReserva
+     * @return
+     *     returns webservice.Checkout
+     */
+    @WebMethod(operationName = "ListarCheckout")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "ListarCheckout", targetNamespace = "http://WebService/", className = "webservice.ListarCheckout")
+    @ResponseWrapper(localName = "ListarCheckoutResponse", targetNamespace = "http://WebService/", className = "webservice.ListarCheckoutResponse")
+    @Action(input = "http://WebService/Servicios/ListarCheckoutRequest", output = "http://WebService/Servicios/ListarCheckoutResponse")
+    public Checkout listarCheckout(
+        @WebParam(name = "id_reserva", targetNamespace = "")
+        String idReserva);
+
+    /**
+     * 
      * @param idReserva
      * @return
      *     returns webservice.Checkin
@@ -39,6 +630,213 @@ public interface Servicios {
     public Checkin listarCheckin(
         @WebParam(name = "id_reserva", targetNamespace = "")
         String idReserva);
+
+    /**
+     * 
+     * @param fechaSolicitud
+     * @param origen
+     * @param destino
+     * @param idReserva
+     * @param horaSolicitud
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "nuevasolicitud", targetNamespace = "http://WebService/", className = "webservice.Nuevasolicitud")
+    @ResponseWrapper(localName = "nuevasolicitudResponse", targetNamespace = "http://WebService/", className = "webservice.NuevasolicitudResponse")
+    @Action(input = "http://WebService/Servicios/nuevasolicitudRequest", output = "http://WebService/Servicios/nuevasolicitudResponse")
+    public String nuevasolicitud(
+        @WebParam(name = "id_reserva", targetNamespace = "")
+        String idReserva,
+        @WebParam(name = "fecha_solicitud", targetNamespace = "")
+        String fechaSolicitud,
+        @WebParam(name = "hora_solicitud", targetNamespace = "")
+        String horaSolicitud,
+        @WebParam(name = "origen", targetNamespace = "")
+        String origen,
+        @WebParam(name = "destino", targetNamespace = "")
+        String destino);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<webservice.Serviciosdepto>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarserv", targetNamespace = "http://WebService/", className = "webservice.Listarserv")
+    @ResponseWrapper(localName = "listarservResponse", targetNamespace = "http://WebService/", className = "webservice.ListarservResponse")
+    @Action(input = "http://WebService/Servicios/listarservRequest", output = "http://WebService/Servicios/listarservResponse")
+    public List<Serviciosdepto> listarserv();
+
+    /**
+     * 
+     * @param idReserva
+     * @return
+     *     returns webservice.Reserva
+     */
+    @WebMethod(operationName = "IDReserva")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "IDReserva", targetNamespace = "http://WebService/", className = "webservice.IDReserva")
+    @ResponseWrapper(localName = "IDReservaResponse", targetNamespace = "http://WebService/", className = "webservice.IDReservaResponse")
+    @Action(input = "http://WebService/Servicios/IDReservaRequest", output = "http://WebService/Servicios/IDReservaResponse")
+    public Reserva idReserva(
+        @WebParam(name = "id_reserva", targetNamespace = "")
+        int idReserva);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<webservice.Usuario>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarusuarios", targetNamespace = "http://WebService/", className = "webservice.Listarusuarios")
+    @ResponseWrapper(localName = "listarusuariosResponse", targetNamespace = "http://WebService/", className = "webservice.ListarusuariosResponse")
+    @Action(input = "http://WebService/Servicios/listarusuariosRequest", output = "http://WebService/Servicios/listarusuariosResponse")
+    public List<Usuario> listarusuarios();
+
+    /**
+     * 
+     * @param idReserva
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "eliminarReserva", targetNamespace = "http://WebService/", className = "webservice.EliminarReserva")
+    @ResponseWrapper(localName = "eliminarReservaResponse", targetNamespace = "http://WebService/", className = "webservice.EliminarReservaResponse")
+    @Action(input = "http://WebService/Servicios/eliminarReservaRequest", output = "http://WebService/Servicios/eliminarReservaResponse")
+    public String eliminarReserva(
+        @WebParam(name = "id_reserva", targetNamespace = "")
+        int idReserva);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<webservice.Usuario>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarclientes", targetNamespace = "http://WebService/", className = "webservice.Listarclientes")
+    @ResponseWrapper(localName = "listarclientesResponse", targetNamespace = "http://WebService/", className = "webservice.ListarclientesResponse")
+    @Action(input = "http://WebService/Servicios/listarclientesRequest", output = "http://WebService/Servicios/listarclientesResponse")
+    public List<Usuario> listarclientes();
+
+    /**
+     * 
+     * @param rut
+     * @return
+     *     returns webservice.Usuario
+     */
+    @WebMethod(operationName = "Mostrarporrut")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "Mostrarporrut", targetNamespace = "http://WebService/", className = "webservice.Mostrarporrut")
+    @ResponseWrapper(localName = "MostrarporrutResponse", targetNamespace = "http://WebService/", className = "webservice.MostrarporrutResponse")
+    @Action(input = "http://WebService/Servicios/MostrarporrutRequest", output = "http://WebService/Servicios/MostrarporrutResponse")
+    public Usuario mostrarporrut(
+        @WebParam(name = "rut", targetNamespace = "")
+        String rut);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<webservice.Categoria>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarcategorias", targetNamespace = "http://WebService/", className = "webservice.Listarcategorias")
+    @ResponseWrapper(localName = "listarcategoriasResponse", targetNamespace = "http://WebService/", className = "webservice.ListarcategoriasResponse")
+    @Action(input = "http://WebService/Servicios/listarcategoriasRequest", output = "http://WebService/Servicios/listarcategoriasResponse")
+    public List<Categoria> listarcategorias();
+
+    /**
+     * 
+     * @param id
+     * @return
+     *     returns java.util.List<webservice.Serviciosdepto>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarServicios", targetNamespace = "http://WebService/", className = "webservice.ListarServicios")
+    @ResponseWrapper(localName = "listarServiciosResponse", targetNamespace = "http://WebService/", className = "webservice.ListarServiciosResponse")
+    @Action(input = "http://WebService/Servicios/listarServiciosRequest", output = "http://WebService/Servicios/listarServiciosResponse")
+    public List<Serviciosdepto> listarServicios(
+        @WebParam(name = "id", targetNamespace = "")
+        int id);
+
+    /**
+     * 
+     * @param rut
+     * @param clave
+     * @param idRol
+     * @param correo
+     * @param telefono
+     * @param nombre
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(operationName = "CrearCuenta")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "CrearCuenta", targetNamespace = "http://WebService/", className = "webservice.CrearCuenta")
+    @ResponseWrapper(localName = "CrearCuentaResponse", targetNamespace = "http://WebService/", className = "webservice.CrearCuentaResponse")
+    @Action(input = "http://WebService/Servicios/CrearCuentaRequest", output = "http://WebService/Servicios/CrearCuentaResponse")
+    public String crearCuenta(
+        @WebParam(name = "rut", targetNamespace = "")
+        String rut,
+        @WebParam(name = "nombre", targetNamespace = "")
+        String nombre,
+        @WebParam(name = "correo", targetNamespace = "")
+        String correo,
+        @WebParam(name = "telefono", targetNamespace = "")
+        String telefono,
+        @WebParam(name = "clave", targetNamespace = "")
+        String clave,
+        @WebParam(name = "id_rol", targetNamespace = "")
+        int idRol);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<webservice.Localidad>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarLocalidades", targetNamespace = "http://WebService/", className = "webservice.ListarLocalidades")
+    @ResponseWrapper(localName = "listarLocalidadesResponse", targetNamespace = "http://WebService/", className = "webservice.ListarLocalidadesResponse")
+    @Action(input = "http://WebService/Servicios/listarLocalidadesRequest", output = "http://WebService/Servicios/listarLocalidadesResponse")
+    public List<Localidad> listarLocalidades();
+
+    /**
+     * 
+     * @param id
+     * @return
+     *     returns java.util.List<webservice.Reservasdepto>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarreservadepartamento", targetNamespace = "http://WebService/", className = "webservice.Listarreservadepartamento")
+    @ResponseWrapper(localName = "listarreservadepartamentoResponse", targetNamespace = "http://WebService/", className = "webservice.ListarreservadepartamentoResponse")
+    @Action(input = "http://WebService/Servicios/listarreservadepartamentoRequest", output = "http://WebService/Servicios/listarreservadepartamentoResponse")
+    public List<Reservasdepto> listarreservadepartamento(
+        @WebParam(name = "id", targetNamespace = "")
+        int id);
+
+    /**
+     * 
+     * @param id
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(operationName = "Eliminardepartamento")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "Eliminardepartamento", targetNamespace = "http://WebService/", className = "webservice.Eliminardepartamento")
+    @ResponseWrapper(localName = "EliminardepartamentoResponse", targetNamespace = "http://WebService/", className = "webservice.EliminardepartamentoResponse")
+    @Action(input = "http://WebService/Servicios/EliminardepartamentoRequest", output = "http://WebService/Servicios/EliminardepartamentoResponse")
+    public String eliminardepartamento(
+        @WebParam(name = "id", targetNamespace = "")
+        int id);
 
     /**
      * 
@@ -57,18 +855,6 @@ public interface Servicios {
 
     /**
      * 
-     * @return
-     *     returns java.util.List<webservice.Departamento>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listardepartamentos", targetNamespace = "http://WebService/", className = "webservice.Listardepartamentos")
-    @ResponseWrapper(localName = "listardepartamentosResponse", targetNamespace = "http://WebService/", className = "webservice.ListardepartamentosResponse")
-    @Action(input = "http://WebService/Servicios/listardepartamentosRequest", output = "http://WebService/Servicios/listardepartamentosResponse")
-    public List<Departamento> listardepartamentos();
-
-    /**
-     * 
      * @param id
      * @return
      *     returns webservice.Departamento
@@ -79,57 +865,6 @@ public interface Servicios {
     @ResponseWrapper(localName = "listarpordepartamentoResponse", targetNamespace = "http://WebService/", className = "webservice.ListarpordepartamentoResponse")
     @Action(input = "http://WebService/Servicios/listarpordepartamentoRequest", output = "http://WebService/Servicios/listarpordepartamentoResponse")
     public Departamento listarpordepartamento(
-        @WebParam(name = "id", targetNamespace = "")
-        int id);
-
-    /**
-     * 
-     * @param descripcion
-     * @param banos
-     * @param fecha
-     * @param ubicacion
-     * @param habitaciones
-     * @param direccion
-     * @param valorarriendo
-     * @param nombre
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "agregardepartamento", targetNamespace = "http://WebService/", className = "webservice.Agregardepartamento")
-    @ResponseWrapper(localName = "agregardepartamentoResponse", targetNamespace = "http://WebService/", className = "webservice.AgregardepartamentoResponse")
-    @Action(input = "http://WebService/Servicios/agregardepartamentoRequest", output = "http://WebService/Servicios/agregardepartamentoResponse")
-    public String agregardepartamento(
-        @WebParam(name = "nombre", targetNamespace = "")
-        String nombre,
-        @WebParam(name = "ubicacion", targetNamespace = "")
-        String ubicacion,
-        @WebParam(name = "banos", targetNamespace = "")
-        String banos,
-        @WebParam(name = "habitaciones", targetNamespace = "")
-        String habitaciones,
-        @WebParam(name = "valorarriendo", targetNamespace = "")
-        String valorarriendo,
-        @WebParam(name = "descripcion", targetNamespace = "")
-        String descripcion,
-        @WebParam(name = "fecha", targetNamespace = "")
-        String fecha,
-        @WebParam(name = "direccion", targetNamespace = "")
-        String direccion);
-
-    /**
-     * 
-     * @param id
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod(operationName = "Eliminardepartamento")
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "Eliminardepartamento", targetNamespace = "http://WebService/", className = "webservice.Eliminardepartamento")
-    @ResponseWrapper(localName = "EliminardepartamentoResponse", targetNamespace = "http://WebService/", className = "webservice.EliminardepartamentoResponse")
-    @Action(input = "http://WebService/Servicios/EliminardepartamentoRequest", output = "http://WebService/Servicios/EliminardepartamentoResponse")
-    public String eliminardepartamento(
         @WebParam(name = "id", targetNamespace = "")
         int id);
 
@@ -174,785 +909,86 @@ public interface Servicios {
 
     /**
      * 
-     * @param id
-     * @param habilitado
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "actualizarestadodepartamento", targetNamespace = "http://WebService/", className = "webservice.Actualizarestadodepartamento")
-    @ResponseWrapper(localName = "actualizarestadodepartamentoResponse", targetNamespace = "http://WebService/", className = "webservice.ActualizarestadodepartamentoResponse")
-    @Action(input = "http://WebService/Servicios/actualizarestadodepartamentoRequest", output = "http://WebService/Servicios/actualizarestadodepartamentoResponse")
-    public String actualizarestadodepartamento(
-        @WebParam(name = "id", targetNamespace = "")
-        int id,
-        @WebParam(name = "habilitado", targetNamespace = "")
-        String habilitado);
-
-    /**
-     * 
      * @return
      *     returns java.util.List<webservice.Departamento>
      */
-    @WebMethod(operationName = "ListarHabilitados")
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "ListarHabilitados", targetNamespace = "http://WebService/", className = "webservice.ListarHabilitados")
-    @ResponseWrapper(localName = "ListarHabilitadosResponse", targetNamespace = "http://WebService/", className = "webservice.ListarHabilitadosResponse")
-    @Action(input = "http://WebService/Servicios/ListarHabilitadosRequest", output = "http://WebService/Servicios/ListarHabilitadosResponse")
-    public List<Departamento> listarHabilitados();
-
-    /**
-     * 
-     * @param fechaContratacion
-     * @param idSrv
-     * @param idReserva
-     * @return
-     *     returns java.lang.String
-     */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "contratarservicio", targetNamespace = "http://WebService/", className = "webservice.Contratarservicio")
-    @ResponseWrapper(localName = "contratarservicioResponse", targetNamespace = "http://WebService/", className = "webservice.ContratarservicioResponse")
-    @Action(input = "http://WebService/Servicios/contratarservicioRequest", output = "http://WebService/Servicios/contratarservicioResponse")
-    public String contratarservicio(
-        @WebParam(name = "fecha_contratacion", targetNamespace = "")
-        String fechaContratacion,
-        @WebParam(name = "id_srv", targetNamespace = "")
-        String idSrv,
-        @WebParam(name = "id_reserva", targetNamespace = "")
-        String idReserva);
+    @RequestWrapper(localName = "listardepartamentos", targetNamespace = "http://WebService/", className = "webservice.Listardepartamentos")
+    @ResponseWrapper(localName = "listardepartamentosResponse", targetNamespace = "http://WebService/", className = "webservice.ListardepartamentosResponse")
+    @Action(input = "http://WebService/Servicios/listardepartamentosRequest", output = "http://WebService/Servicios/listardepartamentosResponse")
+    public List<Departamento> listardepartamentos();
 
     /**
      * 
-     * @param comuna
-     * @return
-     *     returns java.util.List<webservice.Reservas>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarreservasporcomuna", targetNamespace = "http://WebService/", className = "webservice.Listarreservasporcomuna")
-    @ResponseWrapper(localName = "listarreservasporcomunaResponse", targetNamespace = "http://WebService/", className = "webservice.ListarreservasporcomunaResponse")
-    @Action(input = "http://WebService/Servicios/listarreservasporcomunaRequest", output = "http://WebService/Servicios/listarreservasporcomunaResponse")
-    public List<Reservas> listarreservasporcomuna(
-        @WebParam(name = "comuna", targetNamespace = "")
-        String comuna);
-
-    /**
-     * 
-     * @param fechainicial
-     * @param fechafinal
-     * @return
-     *     returns java.util.List<webservice.Reservas>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarreservasporfechas", targetNamespace = "http://WebService/", className = "webservice.Listarreservasporfechas")
-    @ResponseWrapper(localName = "listarreservasporfechasResponse", targetNamespace = "http://WebService/", className = "webservice.ListarreservasporfechasResponse")
-    @Action(input = "http://WebService/Servicios/listarreservasporfechasRequest", output = "http://WebService/Servicios/listarreservasporfechasResponse")
-    public List<Reservas> listarreservasporfechas(
-        @WebParam(name = "fechainicial", targetNamespace = "")
-        String fechainicial,
-        @WebParam(name = "fechafinal", targetNamespace = "")
-        String fechafinal);
-
-    /**
-     * 
-     * @param idReserva
-     * @return
-     *     returns java.util.List<webservice.Servicioreserva>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "servicioscontratados", targetNamespace = "http://WebService/", className = "webservice.Servicioscontratados")
-    @ResponseWrapper(localName = "servicioscontratadosResponse", targetNamespace = "http://WebService/", className = "webservice.ServicioscontratadosResponse")
-    @Action(input = "http://WebService/Servicios/servicioscontratadosRequest", output = "http://WebService/Servicios/servicioscontratadosResponse")
-    public List<Servicioreserva> servicioscontratados(
-        @WebParam(name = "id_reserva", targetNamespace = "")
-        int idReserva);
-
-    /**
-     * 
-     * @param cantidadPersonas
-     * @return
-     *     returns java.util.List<webservice.Reservas>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarreservaspornumeropersonas", targetNamespace = "http://WebService/", className = "webservice.Listarreservaspornumeropersonas")
-    @ResponseWrapper(localName = "listarreservaspornumeropersonasResponse", targetNamespace = "http://WebService/", className = "webservice.ListarreservaspornumeropersonasResponse")
-    @Action(input = "http://WebService/Servicios/listarreservaspornumeropersonasRequest", output = "http://WebService/Servicios/listarreservaspornumeropersonasResponse")
-    public List<Reservas> listarreservaspornumeropersonas(
-        @WebParam(name = "cantidad_personas", targetNamespace = "")
-        String cantidadPersonas);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<webservice.Solicitudes>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarsolicitudes", targetNamespace = "http://WebService/", className = "webservice.Listarsolicitudes")
-    @ResponseWrapper(localName = "listarsolicitudesResponse", targetNamespace = "http://WebService/", className = "webservice.ListarsolicitudesResponse")
-    @Action(input = "http://WebService/Servicios/listarsolicitudesRequest", output = "http://WebService/Servicios/listarsolicitudesResponse")
-    public List<Solicitudes> listarsolicitudes();
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<webservice.Reservas>
-     */
-    @WebMethod(operationName = "Listar3omaspersonas")
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "Listar3omaspersonas", targetNamespace = "http://WebService/", className = "webservice.Listar3Omaspersonas")
-    @ResponseWrapper(localName = "Listar3omaspersonasResponse", targetNamespace = "http://WebService/", className = "webservice.Listar3OmaspersonasResponse")
-    @Action(input = "http://WebService/Servicios/Listar3omaspersonasRequest", output = "http://WebService/Servicios/Listar3omaspersonasResponse")
-    public List<Reservas> listar3Omaspersonas();
-
-    /**
-     * 
-     * @param idInv
      * @param descripcion
-     * @param estado
-     * @param categoria
-     * @param producto
-     * @param cantidad
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "modificarInventario", targetNamespace = "http://WebService/", className = "webservice.ModificarInventario")
-    @ResponseWrapper(localName = "modificarInventarioResponse", targetNamespace = "http://WebService/", className = "webservice.ModificarInventarioResponse")
-    @Action(input = "http://WebService/Servicios/modificarInventarioRequest", output = "http://WebService/Servicios/modificarInventarioResponse")
-    public String modificarInventario(
-        @WebParam(name = "id_inv", targetNamespace = "")
-        int idInv,
-        @WebParam(name = "producto", targetNamespace = "")
-        String producto,
-        @WebParam(name = "cantidad", targetNamespace = "")
-        String cantidad,
-        @WebParam(name = "estado", targetNamespace = "")
-        String estado,
-        @WebParam(name = "descripcion", targetNamespace = "")
-        String descripcion,
-        @WebParam(name = "categoria", targetNamespace = "")
-        String categoria);
-
-    /**
-     * 
-     * @param auto
-     * @param idSolicitud
-     * @param conductor
-     * @param patente
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "nuevaplanificacion", targetNamespace = "http://WebService/", className = "webservice.Nuevaplanificacion")
-    @ResponseWrapper(localName = "nuevaplanificacionResponse", targetNamespace = "http://WebService/", className = "webservice.NuevaplanificacionResponse")
-    @Action(input = "http://WebService/Servicios/nuevaplanificacionRequest", output = "http://WebService/Servicios/nuevaplanificacionResponse")
-    public String nuevaplanificacion(
-        @WebParam(name = "id_solicitud", targetNamespace = "")
-        String idSolicitud,
-        @WebParam(name = "conductor", targetNamespace = "")
-        String conductor,
-        @WebParam(name = "auto", targetNamespace = "")
-        String auto,
-        @WebParam(name = "patente", targetNamespace = "")
-        String patente);
-
-    /**
-     * 
-     * @param idInv
-     * @return
-     *     returns webservice.Inventario
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "detalleinventario", targetNamespace = "http://WebService/", className = "webservice.Detalleinventario")
-    @ResponseWrapper(localName = "detalleinventarioResponse", targetNamespace = "http://WebService/", className = "webservice.DetalleinventarioResponse")
-    @Action(input = "http://WebService/Servicios/detalleinventarioRequest", output = "http://WebService/Servicios/detalleinventarioResponse")
-    public Inventario detalleinventario(
-        @WebParam(name = "id_inv", targetNamespace = "")
-        int idInv);
-
-    /**
-     * 
-     * @param estado
-     * @param idSolicitud
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "actualizarestadosolicitud", targetNamespace = "http://WebService/", className = "webservice.Actualizarestadosolicitud")
-    @ResponseWrapper(localName = "actualizarestadosolicitudResponse", targetNamespace = "http://WebService/", className = "webservice.ActualizarestadosolicitudResponse")
-    @Action(input = "http://WebService/Servicios/actualizarestadosolicitudRequest", output = "http://WebService/Servicios/actualizarestadosolicitudResponse")
-    public String actualizarestadosolicitud(
-        @WebParam(name = "id_solicitud", targetNamespace = "")
-        int idSolicitud,
-        @WebParam(name = "estado", targetNamespace = "")
-        String estado);
-
-    /**
-     * 
-     * @param precio
-     * @param idSrv
-     * @param nombreSrv
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "modificarServicio", targetNamespace = "http://WebService/", className = "webservice.ModificarServicio")
-    @ResponseWrapper(localName = "modificarServicioResponse", targetNamespace = "http://WebService/", className = "webservice.ModificarServicioResponse")
-    @Action(input = "http://WebService/Servicios/modificarServicioRequest", output = "http://WebService/Servicios/modificarServicioResponse")
-    public String modificarServicio(
-        @WebParam(name = "id_srv", targetNamespace = "")
-        int idSrv,
-        @WebParam(name = "nombre_srv", targetNamespace = "")
-        String nombreSrv,
-        @WebParam(name = "precio", targetNamespace = "")
-        String precio);
-
-    /**
-     * 
-     * @param idReserva
-     * @return
-     *     returns java.util.List<webservice.Solicitudtransporte>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarmissolicitudes", targetNamespace = "http://WebService/", className = "webservice.Listarmissolicitudes")
-    @ResponseWrapper(localName = "listarmissolicitudesResponse", targetNamespace = "http://WebService/", className = "webservice.ListarmissolicitudesResponse")
-    @Action(input = "http://WebService/Servicios/listarmissolicitudesRequest", output = "http://WebService/Servicios/listarmissolicitudesResponse")
-    public List<Solicitudtransporte> listarmissolicitudes(
-        @WebParam(name = "id_reserva", targetNamespace = "")
-        String idReserva);
-
-    /**
-     * 
-     * @param id
-     * @return
-     *     returns java.util.List<webservice.Inventarios>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarInventario", targetNamespace = "http://WebService/", className = "webservice.ListarInventario")
-    @ResponseWrapper(localName = "listarInventarioResponse", targetNamespace = "http://WebService/", className = "webservice.ListarInventarioResponse")
-    @Action(input = "http://WebService/Servicios/listarInventarioRequest", output = "http://WebService/Servicios/listarInventarioResponse")
-    public List<Inventarios> listarInventario(
-        @WebParam(name = "id", targetNamespace = "")
-        int id);
-
-    /**
-     * 
-     * @param rut
-     * @param idUsuario
-     * @param correo
-     * @param telefono
+     * @param banos
+     * @param fecha
+     * @param ubicacion
+     * @param habitaciones
+     * @param direccion
+     * @param valorarriendo
      * @param nombre
      * @return
      *     returns java.lang.String
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "modificarUsuario", targetNamespace = "http://WebService/", className = "webservice.ModificarUsuario")
-    @ResponseWrapper(localName = "modificarUsuarioResponse", targetNamespace = "http://WebService/", className = "webservice.ModificarUsuarioResponse")
-    @Action(input = "http://WebService/Servicios/modificarUsuarioRequest", output = "http://WebService/Servicios/modificarUsuarioResponse")
-    public String modificarUsuario(
-        @WebParam(name = "id_usuario", targetNamespace = "")
-        int idUsuario,
-        @WebParam(name = "rut", targetNamespace = "")
-        String rut,
+    @RequestWrapper(localName = "agregardepartamento", targetNamespace = "http://WebService/", className = "webservice.Agregardepartamento")
+    @ResponseWrapper(localName = "agregardepartamentoResponse", targetNamespace = "http://WebService/", className = "webservice.AgregardepartamentoResponse")
+    @Action(input = "http://WebService/Servicios/agregardepartamentoRequest", output = "http://WebService/Servicios/agregardepartamentoResponse")
+    public String agregardepartamento(
         @WebParam(name = "nombre", targetNamespace = "")
         String nombre,
-        @WebParam(name = "correo", targetNamespace = "")
-        String correo,
-        @WebParam(name = "telefono", targetNamespace = "")
-        String telefono);
+        @WebParam(name = "ubicacion", targetNamespace = "")
+        String ubicacion,
+        @WebParam(name = "banos", targetNamespace = "")
+        String banos,
+        @WebParam(name = "habitaciones", targetNamespace = "")
+        String habitaciones,
+        @WebParam(name = "valorarriendo", targetNamespace = "")
+        String valorarriendo,
+        @WebParam(name = "descripcion", targetNamespace = "")
+        String descripcion,
+        @WebParam(name = "fecha", targetNamespace = "")
+        String fecha,
+        @WebParam(name = "direccion", targetNamespace = "")
+        String direccion);
 
     /**
      * 
+     * @param idSolicitud
+     * @return
+     *     returns webservice.Asignacionestransporte
+     */
+    @WebMethod(operationName = "Detalleasignacion")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "Detalleasignacion", targetNamespace = "http://WebService/", className = "webservice.Detalleasignacion")
+    @ResponseWrapper(localName = "DetalleasignacionResponse", targetNamespace = "http://WebService/", className = "webservice.DetalleasignacionResponse")
+    @Action(input = "http://WebService/Servicios/DetalleasignacionRequest", output = "http://WebService/Servicios/DetalleasignacionResponse")
+    public Asignacionestransporte detalleasignacion(
+        @WebParam(name = "id_solicitud", targetNamespace = "")
+        int idSolicitud);
+
+    /**
+     * 
+     * @param rut
      * @param clave
-     * @param correo
+     * @param nombre
      * @return
      *     returns java.lang.String
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "validaUsuario", targetNamespace = "http://WebService/", className = "webservice.ValidaUsuario")
-    @ResponseWrapper(localName = "validaUsuarioResponse", targetNamespace = "http://WebService/", className = "webservice.ValidaUsuarioResponse")
-    @Action(input = "http://WebService/Servicios/validaUsuarioRequest", output = "http://WebService/Servicios/validaUsuarioResponse")
-    public String validaUsuario(
-        @WebParam(name = "correo", targetNamespace = "")
-        String correo,
+    @RequestWrapper(localName = "actualizarperfil", targetNamespace = "http://WebService/", className = "webservice.Actualizarperfil")
+    @ResponseWrapper(localName = "actualizarperfilResponse", targetNamespace = "http://WebService/", className = "webservice.ActualizarperfilResponse")
+    @Action(input = "http://WebService/Servicios/actualizarperfilRequest", output = "http://WebService/Servicios/actualizarperfilResponse")
+    public String actualizarperfil(
+        @WebParam(name = "rut", targetNamespace = "")
+        String rut,
+        @WebParam(name = "nombre", targetNamespace = "")
+        String nombre,
         @WebParam(name = "clave", targetNamespace = "")
         String clave);
-
-    /**
-     * 
-     * @param correo
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "retornarRut", targetNamespace = "http://WebService/", className = "webservice.RetornarRut")
-    @ResponseWrapper(localName = "retornarRutResponse", targetNamespace = "http://WebService/", className = "webservice.RetornarRutResponse")
-    @Action(input = "http://WebService/Servicios/retornarRutRequest", output = "http://WebService/Servicios/retornarRutResponse")
-    public String retornarRut(
-        @WebParam(name = "correo", targetNamespace = "")
-        String correo);
-
-    /**
-     * 
-     * @param descripcion
-     * @param estado
-     * @param categoria
-     * @param producto
-     * @param cantidad
-     * @param idDepto
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "nuevoinventario", targetNamespace = "http://WebService/", className = "webservice.Nuevoinventario")
-    @ResponseWrapper(localName = "nuevoinventarioResponse", targetNamespace = "http://WebService/", className = "webservice.NuevoinventarioResponse")
-    @Action(input = "http://WebService/Servicios/nuevoinventarioRequest", output = "http://WebService/Servicios/nuevoinventarioResponse")
-    public String nuevoinventario(
-        @WebParam(name = "id_depto", targetNamespace = "")
-        String idDepto,
-        @WebParam(name = "producto", targetNamespace = "")
-        String producto,
-        @WebParam(name = "cantidad", targetNamespace = "")
-        String cantidad,
-        @WebParam(name = "estado", targetNamespace = "")
-        String estado,
-        @WebParam(name = "descripcion", targetNamespace = "")
-        String descripcion,
-        @WebParam(name = "categoria", targetNamespace = "")
-        String categoria);
-
-    /**
-     * 
-     * @param correo
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "retornarNombre", targetNamespace = "http://WebService/", className = "webservice.RetornarNombre")
-    @ResponseWrapper(localName = "retornarNombreResponse", targetNamespace = "http://WebService/", className = "webservice.RetornarNombreResponse")
-    @Action(input = "http://WebService/Servicios/retornarNombreRequest", output = "http://WebService/Servicios/retornarNombreResponse")
-    public String retornarNombre(
-        @WebParam(name = "correo", targetNamespace = "")
-        String correo);
-
-    /**
-     * 
-     * @param id
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "eliminarUsuario", targetNamespace = "http://WebService/", className = "webservice.EliminarUsuario")
-    @ResponseWrapper(localName = "eliminarUsuarioResponse", targetNamespace = "http://WebService/", className = "webservice.EliminarUsuarioResponse")
-    @Action(input = "http://WebService/Servicios/eliminarUsuarioRequest", output = "http://WebService/Servicios/eliminarUsuarioResponse")
-    public String eliminarUsuario(
-        @WebParam(name = "id", targetNamespace = "")
-        int id);
-
-    /**
-     * 
-     * @param rut
-     * @return
-     *     returns java.util.List<webservice.Reservas>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarReservas", targetNamespace = "http://WebService/", className = "webservice.ListarReservas")
-    @ResponseWrapper(localName = "listarReservasResponse", targetNamespace = "http://WebService/", className = "webservice.ListarReservasResponse")
-    @Action(input = "http://WebService/Servicios/listarReservasRequest", output = "http://WebService/Servicios/listarReservasResponse")
-    public List<Reservas> listarReservas(
-        @WebParam(name = "rut", targetNamespace = "")
-        String rut);
-
-    /**
-     * 
-     * @param rut
-     * @param idDepartamento
-     * @param cantidadPersonas
-     * @param fechaSalida
-     * @param fechaReserva
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "agregarReserva", targetNamespace = "http://WebService/", className = "webservice.AgregarReserva")
-    @ResponseWrapper(localName = "agregarReservaResponse", targetNamespace = "http://WebService/", className = "webservice.AgregarReservaResponse")
-    @Action(input = "http://WebService/Servicios/agregarReservaRequest", output = "http://WebService/Servicios/agregarReservaResponse")
-    public String agregarReserva(
-        @WebParam(name = "fecha_reserva", targetNamespace = "")
-        String fechaReserva,
-        @WebParam(name = "cantidad_personas", targetNamespace = "")
-        String cantidadPersonas,
-        @WebParam(name = "fecha_salida", targetNamespace = "")
-        String fechaSalida,
-        @WebParam(name = "rut", targetNamespace = "")
-        String rut,
-        @WebParam(name = "id_departamento", targetNamespace = "")
-        String idDepartamento);
-
-    /**
-     * 
-     * @param ubicacion
-     * @return
-     *     returns java.util.List<webservice.Departamento>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarDeptos", targetNamespace = "http://WebService/", className = "webservice.ListarDeptos")
-    @ResponseWrapper(localName = "listarDeptosResponse", targetNamespace = "http://WebService/", className = "webservice.ListarDeptosResponse")
-    @Action(input = "http://WebService/Servicios/listarDeptosRequest", output = "http://WebService/Servicios/listarDeptosResponse")
-    public List<Departamento> listarDeptos(
-        @WebParam(name = "ubicacion", targetNamespace = "")
-        String ubicacion);
-
-    /**
-     * 
-     * @param idReserva
-     * @return
-     *     returns webservice.Reserva
-     */
-    @WebMethod(operationName = "IDReserva")
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "IDReserva", targetNamespace = "http://WebService/", className = "webservice.IDReserva")
-    @ResponseWrapper(localName = "IDReservaResponse", targetNamespace = "http://WebService/", className = "webservice.IDReservaResponse")
-    @Action(input = "http://WebService/Servicios/IDReservaRequest", output = "http://WebService/Servicios/IDReservaResponse")
-    public Reserva idReserva(
-        @WebParam(name = "id_reserva", targetNamespace = "")
-        int idReserva);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<webservice.Categoria>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarcategorias", targetNamespace = "http://WebService/", className = "webservice.Listarcategorias")
-    @ResponseWrapper(localName = "listarcategoriasResponse", targetNamespace = "http://WebService/", className = "webservice.ListarcategoriasResponse")
-    @Action(input = "http://WebService/Servicios/listarcategoriasRequest", output = "http://WebService/Servicios/listarcategoriasResponse")
-    public List<Categoria> listarcategorias();
-
-    /**
-     * 
-     * @param rut
-     * @param clave
-     * @param idRol
-     * @param correo
-     * @param telefono
-     * @param nombre
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod(operationName = "CrearCuenta")
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "CrearCuenta", targetNamespace = "http://WebService/", className = "webservice.CrearCuenta")
-    @ResponseWrapper(localName = "CrearCuentaResponse", targetNamespace = "http://WebService/", className = "webservice.CrearCuentaResponse")
-    @Action(input = "http://WebService/Servicios/CrearCuentaRequest", output = "http://WebService/Servicios/CrearCuentaResponse")
-    public String crearCuenta(
-        @WebParam(name = "rut", targetNamespace = "")
-        String rut,
-        @WebParam(name = "nombre", targetNamespace = "")
-        String nombre,
-        @WebParam(name = "correo", targetNamespace = "")
-        String correo,
-        @WebParam(name = "telefono", targetNamespace = "")
-        String telefono,
-        @WebParam(name = "clave", targetNamespace = "")
-        String clave,
-        @WebParam(name = "id_rol", targetNamespace = "")
-        int idRol);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<webservice.Usuario>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarclientes", targetNamespace = "http://WebService/", className = "webservice.Listarclientes")
-    @ResponseWrapper(localName = "listarclientesResponse", targetNamespace = "http://WebService/", className = "webservice.ListarclientesResponse")
-    @Action(input = "http://WebService/Servicios/listarclientesRequest", output = "http://WebService/Servicios/listarclientesResponse")
-    public List<Usuario> listarclientes();
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<webservice.Usuario>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarusuarios", targetNamespace = "http://WebService/", className = "webservice.Listarusuarios")
-    @ResponseWrapper(localName = "listarusuariosResponse", targetNamespace = "http://WebService/", className = "webservice.ListarusuariosResponse")
-    @Action(input = "http://WebService/Servicios/listarusuariosRequest", output = "http://WebService/Servicios/listarusuariosResponse")
-    public List<Usuario> listarusuarios();
-
-    /**
-     * 
-     * @param rut
-     * @return
-     *     returns webservice.Usuario
-     */
-    @WebMethod(operationName = "Mostrarporrut")
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "Mostrarporrut", targetNamespace = "http://WebService/", className = "webservice.Mostrarporrut")
-    @ResponseWrapper(localName = "MostrarporrutResponse", targetNamespace = "http://WebService/", className = "webservice.MostrarporrutResponse")
-    @Action(input = "http://WebService/Servicios/MostrarporrutRequest", output = "http://WebService/Servicios/MostrarporrutResponse")
-    public Usuario mostrarporrut(
-        @WebParam(name = "rut", targetNamespace = "")
-        String rut);
-
-    /**
-     * 
-     * @param descripcion
-     * @param fechaCheckout
-     * @param idReserva
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "nuevocheckout", targetNamespace = "http://WebService/", className = "webservice.Nuevocheckout")
-    @ResponseWrapper(localName = "nuevocheckoutResponse", targetNamespace = "http://WebService/", className = "webservice.NuevocheckoutResponse")
-    @Action(input = "http://WebService/Servicios/nuevocheckoutRequest", output = "http://WebService/Servicios/nuevocheckoutResponse")
-    public String nuevocheckout(
-        @WebParam(name = "fecha_checkout", targetNamespace = "")
-        String fechaCheckout,
-        @WebParam(name = "descripcion", targetNamespace = "")
-        String descripcion,
-        @WebParam(name = "id_reserva", targetNamespace = "")
-        String idReserva);
-
-    /**
-     * 
-     * @param id
-     * @return
-     *     returns java.util.List<webservice.Serviciosdepto>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarServicios", targetNamespace = "http://WebService/", className = "webservice.ListarServicios")
-    @ResponseWrapper(localName = "listarServiciosResponse", targetNamespace = "http://WebService/", className = "webservice.ListarServiciosResponse")
-    @Action(input = "http://WebService/Servicios/listarServiciosRequest", output = "http://WebService/Servicios/listarServiciosResponse")
-    public List<Serviciosdepto> listarServicios(
-        @WebParam(name = "id", targetNamespace = "")
-        int id);
-
-    /**
-     * 
-     * @param idReserva
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "eliminarReserva", targetNamespace = "http://WebService/", className = "webservice.EliminarReserva")
-    @ResponseWrapper(localName = "eliminarReservaResponse", targetNamespace = "http://WebService/", className = "webservice.EliminarReservaResponse")
-    @Action(input = "http://WebService/Servicios/eliminarReservaRequest", output = "http://WebService/Servicios/eliminarReservaResponse")
-    public String eliminarReserva(
-        @WebParam(name = "id_reserva", targetNamespace = "")
-        int idReserva);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<webservice.Serviciosdepto>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarserv", targetNamespace = "http://WebService/", className = "webservice.Listarserv")
-    @ResponseWrapper(localName = "listarservResponse", targetNamespace = "http://WebService/", className = "webservice.ListarservResponse")
-    @Action(input = "http://WebService/Servicios/listarservRequest", output = "http://WebService/Servicios/listarservResponse")
-    public List<Serviciosdepto> listarserv();
-
-    /**
-     * 
-     * @param id
-     * @return
-     *     returns webservice.Serviciosdepto
-     */
-    @WebMethod(operationName = "BuscarServicio")
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "BuscarServicio", targetNamespace = "http://WebService/", className = "webservice.BuscarServicio")
-    @ResponseWrapper(localName = "BuscarServicioResponse", targetNamespace = "http://WebService/", className = "webservice.BuscarServicioResponse")
-    @Action(input = "http://WebService/Servicios/BuscarServicioRequest", output = "http://WebService/Servicios/BuscarServicioResponse")
-    public Serviciosdepto buscarServicio(
-        @WebParam(name = "id", targetNamespace = "")
-        int id);
-
-    /**
-     * 
-     * @param descripcion
-     * @param idReserva
-     * @param fechaCheckin
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "nuevocheckin", targetNamespace = "http://WebService/", className = "webservice.Nuevocheckin")
-    @ResponseWrapper(localName = "nuevocheckinResponse", targetNamespace = "http://WebService/", className = "webservice.NuevocheckinResponse")
-    @Action(input = "http://WebService/Servicios/nuevocheckinRequest", output = "http://WebService/Servicios/nuevocheckinResponse")
-    public String nuevocheckin(
-        @WebParam(name = "fecha_checkin", targetNamespace = "")
-        String fechaCheckin,
-        @WebParam(name = "descripcion", targetNamespace = "")
-        String descripcion,
-        @WebParam(name = "id_reserva", targetNamespace = "")
-        String idReserva);
-
-    /**
-     * 
-     * @param idReserva
-     * @return
-     *     returns webservice.Checkout
-     */
-    @WebMethod(operationName = "ListarCheckout")
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "ListarCheckout", targetNamespace = "http://WebService/", className = "webservice.ListarCheckout")
-    @ResponseWrapper(localName = "ListarCheckoutResponse", targetNamespace = "http://WebService/", className = "webservice.ListarCheckoutResponse")
-    @Action(input = "http://WebService/Servicios/ListarCheckoutRequest", output = "http://WebService/Servicios/ListarCheckoutResponse")
-    public Checkout listarCheckout(
-        @WebParam(name = "id_reserva", targetNamespace = "")
-        String idReserva);
-
-    /**
-     * 
-     * @param fechainicial
-     * @param fechafinal
-     * @return
-     *     returns java.util.List<webservice.Solicitudes>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarsolicitudesporfechas", targetNamespace = "http://WebService/", className = "webservice.Listarsolicitudesporfechas")
-    @ResponseWrapper(localName = "listarsolicitudesporfechasResponse", targetNamespace = "http://WebService/", className = "webservice.ListarsolicitudesporfechasResponse")
-    @Action(input = "http://WebService/Servicios/listarsolicitudesporfechasRequest", output = "http://WebService/Servicios/listarsolicitudesporfechasResponse")
-    public List<Solicitudes> listarsolicitudesporfechas(
-        @WebParam(name = "fechainicial", targetNamespace = "")
-        String fechainicial,
-        @WebParam(name = "fechafinal", targetNamespace = "")
-        String fechafinal);
-
-    /**
-     * 
-     * @param idDepartamento
-     * @param precio
-     * @param nombreSrv
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "nuevoservicio", targetNamespace = "http://WebService/", className = "webservice.Nuevoservicio")
-    @ResponseWrapper(localName = "nuevoservicioResponse", targetNamespace = "http://WebService/", className = "webservice.NuevoservicioResponse")
-    @Action(input = "http://WebService/Servicios/nuevoservicioRequest", output = "http://WebService/Servicios/nuevoservicioResponse")
-    public String nuevoservicio(
-        @WebParam(name = "nombre_srv", targetNamespace = "")
-        String nombreSrv,
-        @WebParam(name = "precio", targetNamespace = "")
-        String precio,
-        @WebParam(name = "id_departamento", targetNamespace = "")
-        String idDepartamento);
-
-    /**
-     * 
-     * @param id
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "eliminarservicio", targetNamespace = "http://WebService/", className = "webservice.Eliminarservicio")
-    @ResponseWrapper(localName = "eliminarservicioResponse", targetNamespace = "http://WebService/", className = "webservice.EliminarservicioResponse")
-    @Action(input = "http://WebService/Servicios/eliminarservicioRequest", output = "http://WebService/Servicios/eliminarservicioResponse")
-    public String eliminarservicio(
-        @WebParam(name = "id", targetNamespace = "")
-        int id);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<webservice.Usuario>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarcuentas", targetNamespace = "http://WebService/", className = "webservice.Listarcuentas")
-    @ResponseWrapper(localName = "listarcuentasResponse", targetNamespace = "http://WebService/", className = "webservice.ListarcuentasResponse")
-    @Action(input = "http://WebService/Servicios/listarcuentasRequest", output = "http://WebService/Servicios/listarcuentasResponse")
-    public List<Usuario> listarcuentas();
-
-    /**
-     * 
-     * @param fechaSolicitud
-     * @param origen
-     * @param destino
-     * @param idReserva
-     * @param horaSolicitud
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "nuevasolicitud", targetNamespace = "http://WebService/", className = "webservice.Nuevasolicitud")
-    @ResponseWrapper(localName = "nuevasolicitudResponse", targetNamespace = "http://WebService/", className = "webservice.NuevasolicitudResponse")
-    @Action(input = "http://WebService/Servicios/nuevasolicitudRequest", output = "http://WebService/Servicios/nuevasolicitudResponse")
-    public String nuevasolicitud(
-        @WebParam(name = "id_reserva", targetNamespace = "")
-        String idReserva,
-        @WebParam(name = "fecha_solicitud", targetNamespace = "")
-        String fechaSolicitud,
-        @WebParam(name = "hora_solicitud", targetNamespace = "")
-        String horaSolicitud,
-        @WebParam(name = "origen", targetNamespace = "")
-        String origen,
-        @WebParam(name = "destino", targetNamespace = "")
-        String destino);
-
-    /**
-     * 
-     * @param id
-     * @return
-     *     returns java.util.List<webservice.Reservasdepto>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarreservadepartamento", targetNamespace = "http://WebService/", className = "webservice.Listarreservadepartamento")
-    @ResponseWrapper(localName = "listarreservadepartamentoResponse", targetNamespace = "http://WebService/", className = "webservice.ListarreservadepartamentoResponse")
-    @Action(input = "http://WebService/Servicios/listarreservadepartamentoRequest", output = "http://WebService/Servicios/listarreservadepartamentoResponse")
-    public List<Reservasdepto> listarreservadepartamento(
-        @WebParam(name = "id", targetNamespace = "")
-        int id);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<webservice.Localidad>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarLocalidades", targetNamespace = "http://WebService/", className = "webservice.ListarLocalidades")
-    @ResponseWrapper(localName = "listarLocalidadesResponse", targetNamespace = "http://WebService/", className = "webservice.ListarLocalidadesResponse")
-    @Action(input = "http://WebService/Servicios/listarLocalidadesRequest", output = "http://WebService/Servicios/listarLocalidadesResponse")
-    public List<Localidad> listarLocalidades();
 
 }

@@ -398,6 +398,13 @@
                                     </textarea>
                                 </div>   
                             </div>   
+                            <input id="form_name" type="hidden" name="correo" class="form-control" value="<%
+                                                    //preguntamo por la variable de sesion creada en el servlet
+                                                    if (sesion.getAttribute("email") != null) {
+                                                        out.print(sesion.getAttribute("email"));
+                                                    }
+                                                       %>" >
+
                         </div>
                         <footer class="panel-footer text-right bg-light lter">
                             <input type="submit" class="btn btn-primary active" value="Actualizar">&nbsp&nbsp;<button type="reset" class="btn btn-warning">Cancelar</button>

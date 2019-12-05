@@ -655,7 +655,7 @@
                             <td><%= u.getCorreo()%></td>    
                             <td>
                                 <a href="Modifica_user.jsp?id_usuario=<%= u.getIdUsuario()%>&rut=<%= u.getRut()%>&nombre=<%= u.getNombre()%>&correo=<%= u.getCorreo()%>&telefono=<%= u.getTelefono()%>" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a href="EliminarUser?accion=eliminar&id=<%= u.getIdUsuario()%>" class="delete"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                <a href="EliminarUser?accion=eliminar&id=<%= u.getIdUsuario()%>&correo=<%= u.getCorreo()%>&nombre=<%= u.getNombre()%>" class="delete"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                             </td>
                         </tr>
                         <%}%>

@@ -7,6 +7,7 @@ package Servlets;
 
 import Modelo.DepartamentoService;
 import Modelo.ReservasService;
+import Modelo.SendMail;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
@@ -31,7 +32,8 @@ public class NuevaReservac extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     ReservasService reser = new ReservasService();
-    DepartamentoService dep=new DepartamentoService();
+    DepartamentoService dep = new DepartamentoService();
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
@@ -54,9 +56,31 @@ public class NuevaReservac extends HttpServlet {
                                 request.getParameter("id_departamento")
                         )
                 );
-                 dep.actualizarestadodepartamento(Integer.parseInt(request.getParameter("id_departamento")),
-                                request.getParameter("habilitado"));
+                dep.actualizarestadodepartamento(Integer.parseInt(request.getParameter("id_departamento")),
+                        request.getParameter("habilitado"));
 
+                String m = request.getParameter("correo");
+                String sub = "Turismo Real >> Reserva Generada Correctamente";
+
+                String messg = "Estimado Cliente , \n"
+                        + "\n"
+                        + "Se informa que su reserva ha sido generada correctamente \n"
+                        + "Fecha Reserva     : "+request.getParameter("fecha_reserva")+"\n"
+                        + "Fecha Salida      : "+ request.getParameter("fecha_salida")+"\n"
+                        + "Cantidad Personas : "+ request.getParameter("cantidad_personas")+"\n"
+                        + "\n"
+                        + "-------------------------------------------------------------------------------------------------\n"
+                        + "Departamento :"+request.getParameter("departamento")+"\n"
+                        + "Dirección :  "+request.getParameter("direccion")+"//"+request.getParameter("ubicacion")+"\n"
+                        + "Dormitorios :"+request.getParameter("dormitorios")+"\n"
+                        + "Baños : "+request.getParameter("banos")+"\n"
+                        + "Valor Arriendo :"+request.getParameter("valor")+"\n"
+                        + "\n"
+                        + "\n"
+                        + "-------------------------------------------------------------------------------------------------\n"
+                        + "\n"
+                        + "Muchas Gracias por Preferir Turismo Real !";
+                SendMail.send(m, sub, messg);
                 if (request.getAttribute("msg").toString().contains("correctamente")) {
                     request.getRequestDispatcher("reportereserva.jsp").forward(request, response);
 

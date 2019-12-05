@@ -1,183 +1,161 @@
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+<section class="community-body">
 
-<div class="container">
-    <div class="page-header">
-        <h1>Panels with nav tabs.<span class="pull-right label label-default">:)</span></h1>
+      <div class="container">
+        
+  <div class="community-wrapper snippets-gallery">
+    
+
+
+<div class="post-container">
+
+  <section class="post-body template-post">
+
+    <div class="title-group inline-avatar">
+
+
+      <div class="identity-avatar first-letter-j" style="height: 60px; width: 60px; line-height: 60px; font-size: 23px;"><img src="https://cp.litmus.com/b/?c=img&amp;l=0&amp;r=66532789a51d6bff63e7b57b1e3efacd&amp;t=1&amp;th=60&amp;tw=60&amp;u=https%3A%2F%2Fs3.amazonaws.com%2Flitmus-avatars%2Fproduction%2F68476398f6f726ff0775fd4691d2756da22a6e25.jpeg" width="60" height="60" alt="Avatar of Jason Rodriguez"><span class="initials">JR</span></div>
+      <h2 class="title">Ceej: New Account</h2>
+      <div class="metadata">
+        Added by
+        <a class="author" href="/p/rodriguezcommaj">Jason Rodriguez</a>,
+        <time datetime="2016-03-29 18:35:49" data-updated-at="2019-07-16 19:13:03" data-last-commented-at="null">4 years ago</time>
+        in <a class="author" href="/community/templates/topic/34-account-management-templates">Account Management Templates</a>
+      </div><!-- /meta-data -->
+    </div><!-- /title-group -->
+
+    <p>Ceej is a simple, colorful set of emails tailored for account management. The New Account template is perfect for welcoming new users to your product or service. A large call-to-action makes account confirmation quick and easy, with plenty of space for a custom welcome message.</p>
+
+    <div class="template-content">
+      <div class="template-actions" style="width: 428px; top: 0px;">
+  <div class="row">
+    <div class="col-lg-8">
+      <ul>
+          <li>
+            <a class="toggle-sign-in-modal btn btn-primary download-button" data-esp="Plain HTML" href="#">
+                <span class="feathericon-cloud-download"></span> Open in Litmus Builder
+</a>          </li>
+
+          <li>
+            View
+
+                  <a class="toggle-sign-in-modal u-link" href="#">Mailchimp</a>
+
+                or
+
+                      <a class="toggle-sign-in-modal u-link" href="#">Campaign Monitor</a>
+
+            version.
+          </li>
+      </ul>
     </div>
+
+    <div class="col-lg-4 hidden-md-down">
+      <a class="tested-with-litmus" href="https://litmus.com/checklist/emails/public/2c69c7a">
+        <div class="litmus-proof">
+          <span class="icon-grid"></span>
+          <u>Tested with Litmus</u>
+        </div>
+</a>    </div>
+
+  </div>
+</div><!-- /template-actions -->
+
+    </div><!-- /span3 -->
+  </section>
+
+  <div class="template-preview">
+
+
+    <img src="https://s3.amazonaws.com/community-templates/production/df45d8df19c32bd2f8e38580e9afdd030c1f3e06.png" alt="Df45d8df19c32bd2f8e38580e9afdd030c1f3e06">
+  </div>
+</div><!-- /post-container -->
+
+<section class="template-results">
+  <div class="section-header">
     <div class="row">
-    	<div class="col-md-6">
-            <div class="panel with-nav-tabs panel-default">
-                <div class="panel-heading">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab1default" data-toggle="tab">Default 1</a></li>
-                            <li><a href="#tab2default" data-toggle="tab">Default 2</a></li>
-                            <li><a href="#tab3default" data-toggle="tab">Default 3</a></li>
-                            <li class="dropdown">
-                                <a href="#" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#tab4default" data-toggle="tab">Default 4</a></li>
-                                    <li><a href="#tab5default" data-toggle="tab">Default 5</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                </div>
-                <div class="panel-body">
-                    <div class="tab-content">
-                        <div class="tab-pane fade in active" id="tab1default">Default 1</div>
-                        <div class="tab-pane fade" id="tab2default">Default 2</div>
-                        <div class="tab-pane fade" id="tab3default">Default 3</div>
-                        <div class="tab-pane fade" id="tab4default">Default 4</div>
-                        <div class="tab-pane fade" id="tab5default">Default 5</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="panel with-nav-tabs panel-primary">
-                <div class="panel-heading">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab1primary" data-toggle="tab">Primary 1</a></li>
-                            <li><a href="#tab2primary" data-toggle="tab">Primary 2</a></li>
-                            <li><a href="#tab3primary" data-toggle="tab">Primary 3</a></li>
-                            <li class="dropdown">
-                                <a href="#" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#tab4primary" data-toggle="tab">Primary 4</a></li>
-                                    <li><a href="#tab5primary" data-toggle="tab">Primary 5</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                </div>
-                <div class="panel-body">
-                    <div class="tab-content">
-                        <div class="tab-pane fade in active" id="tab1primary">Primary 1</div>
-                        <div class="tab-pane fade" id="tab2primary">Primary 2</div>
-                        <div class="tab-pane fade" id="tab3primary">Primary 3</div>
-                        <div class="tab-pane fade" id="tab4primary">Primary 4</div>
-                        <div class="tab-pane fade" id="tab5primary">Primary 5</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-	</div>
-</div>
-<div class="container">
+      <div class="col-8">
+        <h4>Similar Templates</h4>
+      </div>
+      <div class="col-4 text-right">
+        <a class="see-all" href="/community/templates/topic/34-account-management-templates">
+          See all
+          <i class="icon-arrow-right"></i>
+</a>      </div>
+    </div>
+  </div>
+
+  <div class="grid">
     <div class="row">
-		<div class="col-md-6">
-            <div class="panel with-nav-tabs panel-success">
-                <div class="panel-heading">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab1success" data-toggle="tab">Success 1</a></li>
-                            <li><a href="#tab2success" data-toggle="tab">Success 2</a></li>
-                            <li><a href="#tab3success" data-toggle="tab">Success 3</a></li>
-                            <li class="dropdown">
-                                <a href="#" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#tab4success" data-toggle="tab">Success 4</a></li>
-                                    <li><a href="#tab5success" data-toggle="tab">Success 5</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                </div>
-                <div class="panel-body">
-                    <div class="tab-content">
-                        <div class="tab-pane fade in active" id="tab1success">Success 1</div>
-                        <div class="tab-pane fade" id="tab2success">Success 2</div>
-                        <div class="tab-pane fade" id="tab3success">Success 3</div>
-                        <div class="tab-pane fade" id="tab4success">Success 4</div>
-                        <div class="tab-pane fade" id="tab5success">Success 5</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="panel with-nav-tabs panel-info">
-                <div class="panel-heading">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab1info" data-toggle="tab">Info 1</a></li>
-                            <li><a href="#tab2info" data-toggle="tab">Info 2</a></li>
-                            <li><a href="#tab3info" data-toggle="tab">Info 3</a></li>
-                            <li class="dropdown">
-                                <a href="#" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#tab4info" data-toggle="tab">Info 4</a></li>
-                                    <li><a href="#tab5info" data-toggle="tab">Info 5</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                </div>
-                <div class="panel-body">
-                    <div class="tab-content">
-                        <div class="tab-pane fade in active" id="tab1info">Info 1</div>
-                        <div class="tab-pane fade" id="tab2info">Info 2</div>
-                        <div class="tab-pane fade" id="tab3info">Info 3</div>
-                        <div class="tab-pane fade" id="tab4info">Info 4</div>
-                        <div class="tab-pane fade" id="tab5info">Info 5</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-	</div>
+        <div class="col-lg-3 col-md-6">
+          <div class="card thumb ">
+  <a href="/community/templates/3-ceej-account-update">
+      <div class="image">
+        <img alt="Ceej: Account Update" src="https://cp.litmus.com/b/?c=img&amp;l=0&amp;r=v1&amp;t=1&amp;th=280&amp;tw=280&amp;u=https%3A%2F%2Fs3.amazonaws.com%2Fcommunity-templates%2Fproduction%2Fcfcf70f8d7ee76b4f568af2394e49ae12abc81d4.png">
+        <div class="caption animated fadeIn"></div>
+      </div>
+</a>
+  <div class="details">
+    <a href="/community/templates/3-ceej-account-update">Ceej: Account Update</a>
+  </div>
 </div>
-<div class="container">
-    <div class="row">
-    	<div class="col-md-6">
-            <div class="panel with-nav-tabs panel-warning">
-                <div class="panel-heading">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab1warning" data-toggle="tab">Warning 1</a></li>
-                            <li><a href="#tab2warning" data-toggle="tab">Warning 2</a></li>
-                            <li><a href="#tab3warning" data-toggle="tab">Warning 3</a></li>
-                            <li class="dropdown">
-                                <a href="#" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#tab4warning" data-toggle="tab">Warning 4</a></li>
-                                    <li><a href="#tab5warning" data-toggle="tab">Warning 5</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                </div>
-                <div class="panel-body">
-                    <div class="tab-content">
-                        <div class="tab-pane fade in active" id="tab1warning">Warning 1</div>
-                        <div class="tab-pane fade" id="tab2warning">Warning 2</div>
-                        <div class="tab-pane fade" id="tab3warning">Warning 3</div>
-                        <div class="tab-pane fade" id="tab4warning">Warning 4</div>
-                        <div class="tab-pane fade" id="tab5warning">Warning 5</div>
-                    </div>
-                </div>
-            </div>
+
         </div>
-        <div class="col-md-6">
-            <div class="panel with-nav-tabs panel-danger">
-                <div class="panel-heading">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab1danger" data-toggle="tab">Danger 1</a></li>
-                            <li><a href="#tab2danger" data-toggle="tab">Danger 2</a></li>
-                            <li><a href="#tab3danger" data-toggle="tab">Danger 3</a></li>
-                            <li class="dropdown">
-                                <a href="#" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#tab4danger" data-toggle="tab">Danger 4</a></li>
-                                    <li><a href="#tab5danger" data-toggle="tab">Danger 5</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                </div>
-                <div class="panel-body">
-                    <div class="tab-content">
-                        <div class="tab-pane fade in active" id="tab1danger">Danger 1</div>
-                        <div class="tab-pane fade" id="tab2danger">Danger 2</div>
-                        <div class="tab-pane fade" id="tab3danger">Danger 3</div>
-                        <div class="tab-pane fade" id="tab4danger">Danger 4</div>
-                        <div class="tab-pane fade" id="tab5danger">Danger 5</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-	</div>
+        <div class="col-lg-3 col-md-6">
+          <div class="card thumb ">
+  <a href="/community/templates/5-ceej-expired-card">
+      <div class="image">
+        <img alt="Ceej: Expired Card" src="https://cp.litmus.com/b/?c=img&amp;l=0&amp;r=v1&amp;t=1&amp;th=280&amp;tw=280&amp;u=https%3A%2F%2Fs3.amazonaws.com%2Fcommunity-templates%2Fproduction%2Fbf50349146808dd22e01ad7b7bead36694e48a44.png">
+        <div class="caption animated fadeIn"></div>
+      </div>
+</a>
+  <div class="details">
+    <a href="/community/templates/5-ceej-expired-card">Ceej: Expired Card</a>
+  </div>
 </div>
-<br/>
+
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="card thumb ">
+  <a href="/community/templates/7-ceej-password-reset">
+      <div class="image">
+        <img alt="Ceej: Password Reset" src="https://cp.litmus.com/b/?c=img&amp;l=0&amp;r=v1&amp;t=1&amp;th=280&amp;tw=280&amp;u=https%3A%2F%2Fs3.amazonaws.com%2Fcommunity-templates%2Fproduction%2Fe2df8f32cb58f90919132d2e1cc3a3612672dbf9.png">
+        <div class="caption animated fadeIn"></div>
+      </div>
+</a>
+  <div class="details">
+    <a href="/community/templates/7-ceej-password-reset">Ceej: Password Reset</a>
+  </div>
+</div>
+
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="card thumb ">
+  <a href="/community/templates/33-accessible-transactional-email">
+      <div class="image">
+        <img alt="Accessible Transactional Email" src="https://cp.litmus.com/b/?c=img&amp;l=0&amp;r=v1&amp;t=1&amp;th=280&amp;tw=280&amp;u=https%3A%2F%2Fs3.amazonaws.com%2Fcommunity-templates%2Fproduction%2F32e008b808738d5a5f5538b51dc591a6e3ebaaa8.png">
+        <div class="caption animated fadeIn"></div>
+      </div>
+</a>
+  <div class="details">
+    <a href="/community/templates/33-accessible-transactional-email">Accessible Transactional Email</a>
+        <div class="attr">
+          <a href="/community/templates/33-accessible-transactional-email">
+              <img alt="Attribution Logo" src="https://s3.amazonaws.com/community-templates/production/f8be37295c3c42c87d89718f313e2b4e1068a143.png">
+</a>        </div>
+  </div>
+</div>
+
+        </div>
+    </div><!-- /row-fluid -->
+  </div>
+</section>
+
+
+
+
+  </div>
+
+
+
+      </div> <!-- container -->
+    </section>

@@ -1,6 +1,7 @@
 package Servlets;
 
 import Modelo.CuentasService;
+import Modelo.SendMail;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -33,6 +34,24 @@ public class ModificaCliente extends HttpServlet {
                                 request.getParameter("nombre"),
                                 request.getParameter("correo"),
                                 request.getParameter("telefono")));
+
+                
+                String m = request.getParameter("correo");
+                String sub = "Turismo Real >> Datos Actualizados ";
+
+                String messg = "Estimado , \n"
+                        + "\n"
+                        + "Se informa que los datos de su cuenta han sido actualizados\n"
+                        + "Rut      :"+request.getParameter("rut")+"\n"
+                        + "Nombre   :"+request.getParameter("nombre")+"\n"
+                        + "Teléfono :"+request.getParameter("telefono")+"\n"  
+                        + "Correo   :"+request.getParameter("correo")+"\n" 
+                        + "En caso de que usted no fue el que  hizo  la actualización , favor escribir  a turismorealduoc@gmail.com indicando el error de actualización . \n"
+                        + "-------------------------------------------------------------------------------------------------------------------\n"
+                        + "\n"
+                        + "Muchas Gracias por Preferir Turismo Real !";
+
+                SendMail.send(m, sub, messg);
 
                 if (request.getAttribute("msg").toString().contains("correctamente")) {
                     request.getRequestDispatcher("Clientes.jsp").forward(request, response);

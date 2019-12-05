@@ -55,16 +55,32 @@ public class planificar extends HttpServlet {
                 );
                 ts.actualizarestadosolicitud(Integer.parseInt(request.getParameter("id_solicitud")),
                         request.getParameter("estado"));
-                
-                
+
                 String m = request.getParameter("correo");
                 String sub = "Solicitud de Transporte ha sido aceptada";
-                String messg = "Estimado(a) Cliente se informa que su solicitud de transporte ha sido aceptada correctamente. para más información revisar su cuenta en http://localhost:8080/aplicacionweb/index.jsp"
-                        + "                                                                                           "
-
-                        + "                                                                                          "
-                        + "                                                                                          "
-                        + "Muchas gracias!";
+                String messg = "Estimado Cliente , \n"
+                        + "\n"
+                        + "Se informa que su solicitud de transporte fue aceptada y ha sido planificada con los \n"
+                        + "siguientes datos : \n"
+                        + "\n"
+                        + "Fecha :  " + request.getParameter("fecha_solicitud") + "\n"
+                        + "\n"
+                        + "Hora :   " + request.getParameter("hora_solicitud") + "\n"
+                        + "\n"
+                        + "Origen:  " + request.getParameter("origen") + "\n"
+                        + "\n"
+                        + "Destino :" + request.getParameter("destino") + " \n"
+                        + "\n"
+                        + "Conductor : " + request.getParameter("conductor") + "\n"
+                        + "\n"
+                        + "Auto : " + request.getParameter("auto") + "\n"
+                        + "\n"
+                        + "Patente : " + request.getParameter("patente") + "\n"
+                        + "\n"
+                        + "Para más información ingresar a : http://localhost:8080/aplicacionweb/\n"
+                        + "-------------------------------------------------------------------------------------------------------------------\n"
+                        + "\n"
+                        + "Muchas Gracias por Preferir Turismo Real !";
 
                 SendMail.send(m, sub, messg);
 

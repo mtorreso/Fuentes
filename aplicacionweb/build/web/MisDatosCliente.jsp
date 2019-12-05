@@ -187,7 +187,7 @@
                                                     if (sesion.getAttribute("nombre") != null) {
                                                         out.print(sesion.getAttribute("nombre"));
                                                     }
-                                                    %>" >
+                                                %>" readonly="" >
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -198,7 +198,7 @@
                                                     if (sesion.getAttribute("email") != null) {
                                                         out.print(sesion.getAttribute("email"));
                                                     }
-                                                       %>">
+                                                    %>" readonly="">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -212,18 +212,12 @@
                                                        %>"readonly="">
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label" for="inputContact8">Contraseña</label>
-                                            <div class="col-sm-10">
-                                                <input class="form-control" id="inputContact8" type="password" placeholder="" value="">
-                                            </div>
-                                        </div>
+                                        
                                         <div class="form-group">
                                             
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
-                                                <button class="btn btn-primary active" type="submit">Actualizar Perfil</button>
                                             </div>
                                         </div>
                                     </form>

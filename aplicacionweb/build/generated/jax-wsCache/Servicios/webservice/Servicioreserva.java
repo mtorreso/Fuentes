@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="fecha_contratacion" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="id_reserva" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="id_reserva" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="id_srv" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="nombre_srv" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="precio" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
@@ -43,7 +43,7 @@ public class Servicioreserva {
     @XmlElement(name = "fecha_contratacion")
     protected String fechaContratacion;
     @XmlElement(name = "id_reserva")
-    protected int idReserva;
+    protected String idReserva;
     @XmlElement(name = "id_srv")
     protected int idSrv;
     @XmlElement(name = "nombre_srv")
@@ -77,16 +77,24 @@ public class Servicioreserva {
     /**
      * Obtiene el valor de la propiedad idReserva.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getIdReserva() {
+    public String getIdReserva() {
         return idReserva;
     }
 
     /**
      * Define el valor de la propiedad idReserva.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setIdReserva(int value) {
+    public void setIdReserva(String value) {
         this.idReserva = value;
     }
 

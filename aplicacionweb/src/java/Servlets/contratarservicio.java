@@ -6,6 +6,7 @@
 package Servlets;
 
 import Modelo.CuentasService;
+import Modelo.SendMail;
 import Modelo.ServicioService;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -41,6 +42,21 @@ public class contratarservicio extends HttpServlet {
                                     request.getParameter("id_reserva")
                             )
                     );
+                    String m = request.getParameter("correo");
+                    String sub = "Turismo Real >> Servicio Contratado";
+
+                    String messg = "Estimado , \n"
+                            + "\n"
+                            + "Se informa que se ha contratado correctamente el servicio que se detalla a continuación . \n"
+                            + "Fecha Contratación  :"+request.getParameter("fecha_contratacion")+"\n"
+                            + "Nombre Servicio     :"+request.getParameter("nombre")+"\n"
+                            + "Precio              :"+request.getParameter("precio")+"\n"
+                            + "-------------------------------------------------------------------------------------------------------------------\n"
+                            + "\n"
+                            + "Muchas Gracias por Preferir Turismo Real !"
+                            + "";
+
+                    SendMail.send(m, sub, messg);
 
                     if (request.getAttribute("msg").toString().contains("correctamente")) {
                         acceso = index;

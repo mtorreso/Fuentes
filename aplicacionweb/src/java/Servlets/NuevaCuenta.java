@@ -41,21 +41,20 @@ public class NuevaCuenta extends HttpServlet {
 
                 String m = request.getParameter("correo");
                 String sub = "Bienvenido a Turismo Real :" + request.getParameter("nombre");
-                String messg = "Estimado " + request.getParameter("nombre") + "  Se ha creado su cuenta de usuario y sus datos son : " + ""
-                        + "                                                                                           "
-                        + "                                                                                           "
-                        + "Usuario : " + request.getParameter("correo") + ""
-                        + "                                                                                           "
-                        + "                                                                                           "
-                        + "                                                                 "
-                        + "Clave   : " + request.getParameter("clave") + ""
-                        + "                                                                                          "
-                        + "                                                                                          "
-                        + "                                                                                          "
-                        + "                                                                                          "
-                        + "Muchas gracias por preferir Turismo Real!";
 
-
+//                String messg = "Estimado "+request.getParameter("nombre")+" \n"
+//                        + "Se ha creado su cuenta correctamente, sus datos son \n"
+//                        + "Email :"+request.getParameter("correo")+" \n"
+//                        + "Clave :"+request.getParameter("clave")+" \n"
+//                        + "\n"
+//                        + "Gracias por preferir Turismo Real !!";
+                String messg = "Estimado "+request.getParameter("nombre")+" \n"
+                        + "Se ha creado su cuenta correctamente , sus datos son \n"
+                        + "\n"
+                        + "Email :"+request.getParameter("correo")+" \n"
+                         + "Clave :"+request.getParameter("clave")+" \n"
+                        + "\n"
+                        + "Gracias por preferir Turismo Real !!";
 
                 SendMail.send(m, sub, messg);
 
