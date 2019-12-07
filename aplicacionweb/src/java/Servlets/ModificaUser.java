@@ -16,6 +16,7 @@ public class ModificaUser extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
@@ -41,10 +42,10 @@ public class ModificaUser extends HttpServlet {
                 String messg = "Estimado , \n"
                         + "\n"
                         + "Se informa que los datos de su cuenta han sido actualizados\n"
-                        + "Rut      :"+request.getParameter("rut")+"\n"
-                        + "Nombre   :"+request.getParameter("nombre")+"\n"
-                        + "Teléfono :"+request.getParameter("telefono")+"\n"  
-                        + "Correo   :"+request.getParameter("correo")+"\n" 
+                        + "Rut      :" + request.getParameter("rut") + "\n"
+                        + "Nombre   :" + request.getParameter("nombre") + "\n"
+                        + "Teléfono :" + request.getParameter("telefono") + "\n"
+                        + "Correo   :" + request.getParameter("correo") + "\n"
                         + "En caso de que usted no fue el que  hizo  la actualización , favor escribir  a turismorealduoc@gmail.com indicando el error de actualización . \n"
                         + "-------------------------------------------------------------------------------------------------------------------\n"
                         + "\n"

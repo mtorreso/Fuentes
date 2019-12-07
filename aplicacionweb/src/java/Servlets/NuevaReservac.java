@@ -36,6 +36,8 @@ public class NuevaReservac extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
 
         try {
@@ -65,16 +67,16 @@ public class NuevaReservac extends HttpServlet {
                 String messg = "Estimado Cliente , \n"
                         + "\n"
                         + "Se informa que su reserva ha sido generada correctamente \n"
-                        + "Fecha Reserva     : "+request.getParameter("fecha_reserva")+"\n"
-                        + "Fecha Salida      : "+ request.getParameter("fecha_salida")+"\n"
-                        + "Cantidad Personas : "+ request.getParameter("cantidad_personas")+"\n"
+                        + "Fecha Reserva     : " + request.getParameter("fecha_reserva") + "\n"
+                        + "Fecha Salida      : " + request.getParameter("fecha_salida") + "\n"
+                        + "Cantidad Personas : " + request.getParameter("cantidad_personas") + "\n"
                         + "\n"
                         + "-------------------------------------------------------------------------------------------------\n"
-                        + "Departamento :"+request.getParameter("departamento")+"\n"
-                        + "Dirección :  "+request.getParameter("direccion")+"//"+request.getParameter("ubicacion")+"\n"
-                        + "Dormitorios :"+request.getParameter("dormitorios")+"\n"
-                        + "Baños : "+request.getParameter("banos")+"\n"
-                        + "Valor Arriendo :"+request.getParameter("valor")+"\n"
+                        + "Departamento :" + request.getParameter("departamento") + "\n"
+                        + "Dirección :  " + request.getParameter("direccion") + "//" + request.getParameter("ubicacion") + "\n"
+                        + "Dormitorios :" + request.getParameter("dormitorios") + "\n"
+                        + "Baños : " + request.getParameter("banos") + "\n"
+                        + "Valor Arriendo :" + request.getParameter("valor") + "\n"
                         + "\n"
                         + "\n"
                         + "-------------------------------------------------------------------------------------------------\n"

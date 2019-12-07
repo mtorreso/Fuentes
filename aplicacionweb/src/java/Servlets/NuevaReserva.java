@@ -35,6 +35,8 @@ public class NuevaReserva extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
 
         try {
@@ -55,10 +57,9 @@ public class NuevaReserva extends HttpServlet {
                                 request.getParameter("id_departamento")
                         )
                 );
-                
-                        dep.actualizarestadodepartamento(Integer.parseInt(request.getParameter("id_departamento")),
-                                request.getParameter("habilitado"));
-              
+
+                dep.actualizarestadodepartamento(Integer.parseInt(request.getParameter("id_departamento")),
+                        request.getParameter("habilitado"));
 
                 if (request.getAttribute("msg").toString().contains("correctamente")) {
                     request.getRequestDispatcher("index.jsp").forward(request, response);

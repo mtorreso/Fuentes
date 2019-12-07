@@ -33,6 +33,9 @@ public class CrearDepartamento extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+
         PrintWriter out = response.getWriter();
 
         try {
@@ -62,7 +65,6 @@ public class CrearDepartamento extends HttpServlet {
                 String m = request.getParameter("correo");
                 String sub = "Turismo Real - Nuevo Departamento";
 
-
                 String messg = "Estimado Usuario \n"
                         + "\n"
                         + "Se informa que se ha registrado un nuevo departamento  con los siguientes datos\n"
@@ -70,10 +72,10 @@ public class CrearDepartamento extends HttpServlet {
                         + "Fecha Publicación: " + request.getParameter("fecha") + "\n"
                         + "Nombre :           " + request.getParameter("nombre") + "\n"
                         + "Dirección :        " + request.getParameter("direccion") + "/" + request.getParameter("ubicacion") + "\n"
-                        + "Baños :            " + request.getParameter("banos") +"\n"
-                        + "Dormitorios:       " + request.getParameter("habitaciones") +"\n"
-                        + "Valor Arriendo :   " + request.getParameter("valorarriendo") +"\n"
-                        + "Detalle :          " + request.getParameter("descripcion") +"\n"
+                        + "Baños :            " + request.getParameter("banos") + "\n"
+                        + "Dormitorios:       " + request.getParameter("habitaciones") + "\n"
+                        + "Valor Arriendo :   " + request.getParameter("valorarriendo") + "\n"
+                        + "Detalle :          " + request.getParameter("descripcion") + "\n"
                         + "\n"
                         + "\n"
                         + "-------------------------------------------------------------------------------------------------------------------\n"

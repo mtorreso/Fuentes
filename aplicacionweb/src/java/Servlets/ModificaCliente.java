@@ -17,6 +17,8 @@ public class ModificaCliente extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
             if (request.getParameter("rut") != null && !request.getParameter("rut").isEmpty()
@@ -35,17 +37,16 @@ public class ModificaCliente extends HttpServlet {
                                 request.getParameter("correo"),
                                 request.getParameter("telefono")));
 
-                
                 String m = request.getParameter("correo");
                 String sub = "Turismo Real >> Datos Actualizados ";
 
                 String messg = "Estimado , \n"
                         + "\n"
                         + "Se informa que los datos de su cuenta han sido actualizados\n"
-                        + "Rut      :"+request.getParameter("rut")+"\n"
-                        + "Nombre   :"+request.getParameter("nombre")+"\n"
-                        + "Teléfono :"+request.getParameter("telefono")+"\n"  
-                        + "Correo   :"+request.getParameter("correo")+"\n" 
+                        + "Rut      :" + request.getParameter("rut") + "\n"
+                        + "Nombre   :" + request.getParameter("nombre") + "\n"
+                        + "Teléfono :" + request.getParameter("telefono") + "\n"
+                        + "Correo   :" + request.getParameter("correo") + "\n"
                         + "En caso de que usted no fue el que  hizo  la actualización , favor escribir  a turismorealduoc@gmail.com indicando el error de actualización . \n"
                         + "-------------------------------------------------------------------------------------------------------------------\n"
                         + "\n"

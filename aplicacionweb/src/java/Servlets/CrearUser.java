@@ -17,6 +17,8 @@ public class CrearUser extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
             if (request.getParameter("rut") != null && !request.getParameter("rut").isEmpty()
@@ -38,20 +40,20 @@ public class CrearUser extends HttpServlet {
                                 request.getParameter("telefono"),
                                 request.getParameter("clave"),
                                 Integer.parseInt(request.getParameter("id_rol"))));
-                
+
                 String m = request.getParameter("correo");
                 String sub = "Bienvenido a Turismo Real : " + request.getParameter("nombre");
 
-                String messg = "Estimado "+request.getParameter("nombre")+" \n"
+                String messg = "Estimado " + request.getParameter("nombre") + " \n"
                         + "Se ha creado su cuenta correctamente , sus datos son \n"
                         + "\n"
-                        + "Email :"+request.getParameter("correo")+" \n"
-                         + "Clave :"+request.getParameter("clave")+" \n"
+                        + "Email :" + request.getParameter("correo") + " \n"
+                        + "Clave :" + request.getParameter("clave") + " \n"
                         + "\n"
                         + "Gracias por preferir Turismo Real !!";
 
                 SendMail.send(m, sub, messg);
-                
+
                 if (request.getAttribute("msg").toString().contains("correctamente")) {
                     request.getRequestDispatcher("Crear_user.jsp").forward(request, response);
                 } else {

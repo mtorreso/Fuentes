@@ -1,7 +1,6 @@
 <%@page import="webservice.Departamento"%>
 <%@page import="webservice.Usuario"%>
 <%@page import="webservice.Localidad"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="Modelo.*" %>
 <%@page import="java.util.List"%>
@@ -19,9 +18,8 @@
 %>
 <html lang="en" class="app">
     <head>
-        <meta charset="utf-8" />
+       <%@page contentType="text/html" pageEncoding="UTF-8"%>
         <title>Turismo Real - Portafolio de Titulo</title>
-        <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
         <link type="text/css" rel="stylesheet" href="turismo/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
